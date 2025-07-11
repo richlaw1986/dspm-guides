@@ -1,20 +1,11 @@
-const path = require("path");
-
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("public");
-  
-  // Set the includes directory explicitly
-  eleventyConfig.setLayoutsDirectory("src/_includes");
+  eleventyConfig.addPassthroughCopy("css");
   
   return {
     dir: {
-      input: "src",
+      input: ".",
       output: "_site",
       includes: "_includes"
-    },
-    templateFormats: ["md", "njk", "html"],
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk"
+    }
   };
 };
