@@ -129,37 +129,37 @@ layout: base.njk
     </div>
 
 	<div class="content-section">
-	            <h2 class="section-title">Best Practices & Tips</h2>
+	        <h2 class="section-title">Best Practices & Tips</h2>
+        
+	        <div class="best-practices-grid">
+	            <div class="practice-card">
+	                <h4>Performance Considerations</h4>
+	                <ul>
+	                    <li>Start with incremental or scoped scans</li>
+	                    <li>Use sampling for very large tables</li>
+	                    <li>Tune sample rates for speed vs coverage</li>
+	                </ul>
+	            </div>
             
-	            <div class="best-practices-grid">
-	                <div class="practice-card">
-	                    <h4>Performance Considerations</h4>
-	                    <ul>
-	                        <li>Start with incremental or scoped scans</li>
-	                        <li>Use sampling for very large tables</li>
-	                        <li>Tune sample rates for speed vs coverage</li>
-	                    </ul>
-	                </div>
-                
-	                <div class="practice-card">
-	                    <h4>Tuning Detection Rules</h4>
-	                    <ul>
-	                        <li>Maintain allowlists for synthetic datasets</li>
-	                        <li>Adjust confidence thresholds</li>
-	                        <li>Match rules to your risk tolerance</li>
-	                    </ul>
-	                </div>
-                
-	                <div class="practice-card warning-card">
-	                    <h4>Common Pitfalls</h4>
-	                    <ul>
-	                        <li>Forgetting Delta Lake tables outside Unity Catalog</li>
-	                        <li>Over-scanning temporary or test schemas</li>
-	                        <li>Neglecting to rotate service-principal credentials</li>
-	                    </ul>
-	                </div>
+	            <div class="practice-card">
+	                <h4>Tuning Detection Rules</h4>
+	                <ul>
+	                    <li>Maintain allowlists for synthetic datasets</li>
+	                    <li>Adjust confidence thresholds</li>
+	                    <li>Match rules to your risk tolerance</li>
+	                </ul>
+	            </div>
+            
+	            <div class="practice-card warning-card">
+	                <h4>Common Pitfalls</h4>
+	                <ul>
+	                    <li>Forgetting Delta Lake tables outside Unity Catalog</li>
+	                    <li>Over-scanning temporary or test schemas</li>
+	                    <li>Neglecting to rotate service-principal credentials</li>
+	                </ul>
 	            </div>
 	        </div>
+	    </div>
 
     <div class="content-section references-section">
         <h2 class="section-title">References & Further Reading</h2>
