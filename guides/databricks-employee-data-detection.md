@@ -130,7 +130,6 @@ layout: base.njk
 
 	<div class="content-section">
 	        <h2 class="section-title">Best Practices & Tips</h2>
-        
 	        <div class="best-practices-grid">
 	            <div class="practice-card">
 	                <h4>Performance Considerations</h4>
@@ -140,7 +139,6 @@ layout: base.njk
 	                    <li>Tune sample rates for speed vs coverage</li>
 	                </ul>
 	            </div>
-            
 	            <div class="practice-card">
 	                <h4>Tuning Detection Rules</h4>
 	                <ul>
@@ -149,7 +147,6 @@ layout: base.njk
 	                    <li>Match rules to your risk tolerance</li>
 	                </ul>
 	            </div>
-            
 	            <div class="practice-card warning-card">
 	                <h4>Common Pitfalls</h4>
 	                <ul>
