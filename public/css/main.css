@@ -347,11 +347,12 @@ body {
 }
 
 .best-practices-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 24px !important;
-    margin: 24px 0 !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin: 24px 0;
 }
+
 .practice-card {
     background: #f9fafb;
     padding: 24px;
