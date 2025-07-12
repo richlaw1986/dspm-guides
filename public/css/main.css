@@ -348,9 +348,10 @@ body {
 
 .best-practices-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 24px;
     margin: 24px 0;
+    border: 2px solid red; /* temporary - to see the container */
 }
 
 .practice-card {
