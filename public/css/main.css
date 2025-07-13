@@ -193,18 +193,25 @@ body {
 
 .badge {
     display: inline-block;
-    padding: 6px 12px;
-    background: #10b981;
-    color: white;
-    border-radius: 6px;
-    font-size: 0.875rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
     font-weight: 600;
     margin-right: 8px;
-    letter-spacing: 0.025em;
+    transition: all 0.3s ease;
+}
+
+.badge,
+.badge.default {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    color: #065f46;
+    border: 1px solid #10b981;
 }
 
 .badge.regulation {
-    background: #7c3aed;
+    background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+    color: #5b21b6;
+    border: 1px solid #7c3aed;
 }
 
 .content-section {
