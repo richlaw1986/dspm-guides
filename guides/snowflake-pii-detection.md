@@ -56,6 +56,11 @@ layout: base.njk
             </div>
         </div>
     </div>
+	
+    <div class="cyera-highlight">
+        <h3>Introducing Cyera</h3>
+        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating PII detection in Snowflake, Cyera provides comprehensive visibility into your data warehouse including complex semi-structured formats like JSON and XML, ensuring you maintain GDPR, HIPAA, and SOC 2 compliance.</p>
+    </div>
 
     <div class="content-section">
         <h2 class="section-title">Step-by-Step Guide</h2>
@@ -88,10 +93,7 @@ GRANT USAGE ON DATABASE your_database TO ROLE pii_scanner_role;</div>
         </div>
     </div>
 
-    <div class="cyera-highlight">
-        <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating PII detection in Snowflake, Cyera provides comprehensive visibility into your data warehouse including complex semi-structured formats like JSON and XML, ensuring you maintain GDPR, HIPAA, and SOC 2 compliance.</p>
-    </div>
+   
 
     <div class="content-section architecture-section">
         <h2 class="section-title">Architecture & Workflow</h2>

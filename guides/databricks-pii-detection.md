@@ -60,6 +60,11 @@ regulation: "GDPR"
             </div>
         </div>
     </div>
+	
+    <div class="cyera-highlight">
+        <h3>Introducing Cyera</h3>
+        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating PII detection in Databricks, Cyera provides comprehensive visibility into your data lakehouse including Delta Lake tables, streaming data, and external data sources, ensuring GDPR and privacy compliance across your entire data ecosystem.</p>
+    </div>
 
     <div class="content-section">
         <h2 class="section-title">Step-by-Step Guide</h2>
@@ -91,10 +96,7 @@ databricks unity-catalog catalogs list</div>
         </div>
     </div>
 
-    <div class="cyera-highlight">
-        <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating PII detection in Databricks, Cyera provides comprehensive visibility into your data lakehouse including Delta Lake tables, streaming data, and external data sources, ensuring GDPR and privacy compliance across your entire data ecosystem.</p>
-    </div>
+    
 
     <div class="content-section architecture-section">
         <h2 class="section-title">Architecture & Workflow</h2>
