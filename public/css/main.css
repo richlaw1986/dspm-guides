@@ -576,6 +576,52 @@ body {
     margin-bottom: 24px;
 }
 
+/* Guide Card Tags - Override any existing tag styles */
+.guide-card .tag,
+.guide-card .badge,
+.guide-card [class*="badge"],
+.guide-card [class*="tag"] {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 2px 4px 2px 0;
+    border: 1px solid;
+}
+
+/* Security/Critical tags - Purple theme */
+.guide-card .critical,
+.guide-card .security,
+.guide-card [class*="critical"],
+.guide-card [class*="security"] {
+    background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%) !important;
+    color: #5b21b6 !important;
+    border-color: #7c3aed !important;
+}
+
+/* Compliance/ISO tags - Green theme */
+.guide-card .compliance,
+.guide-card .iso,
+.guide-card [class*="compliance"],
+.guide-card [class*="iso"],
+.guide-card [class*="27001"] {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%) !important;
+    color: #065f46 !important;
+    border-color: #10b981 !important;
+}
+
+/* Coming Soon buttons */
+.guide-card .coming-soon,
+.guide-card [class*="coming"] {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
+    color: #64748b !important;
+    border-color: #94a3b8 !important;
+    cursor: not-allowed;
+}
+
 .guides-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
