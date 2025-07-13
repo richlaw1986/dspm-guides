@@ -156,26 +156,37 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ffffff;
     border-radius: 12px;
     padding: 48px;
     margin-bottom: 32px;
-    box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.25), 0 4px 6px -2px rgba(102, 126, 234, 0.1);
-    border: 1px solid #e0e7ff;
-    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #7c3aed 0%, #10b981 100%);
+    border-radius: 12px 12px 0 0;
 }
 
 .header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #1e293b;
     margin-bottom: 12px;
     letter-spacing: -0.025em;
 }
 
 .header p {
     font-size: 1.125rem;
-    color: #e0e7ff;
+    color: #64748b;
     margin-bottom: 24px;
     font-weight: 400;
 }
