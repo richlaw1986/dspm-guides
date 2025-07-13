@@ -576,50 +576,70 @@ body {
     margin-bottom: 24px;
 }
 
-/* Guide Card Tags - Override any existing tag styles */
-.guide-card .tag,
-.guide-card .badge,
-.guide-card [class*="badge"],
-.guide-card [class*="tag"] {
+/* Guide Card Styling */
+.guide-link-title {
+    color: #111827;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.guide-link-title:hover {
+    color: #5b21b6;
+}
+
+.guide-tags-container {
+    margin-top: 16px;
+}
+
+.guide-tag {
     display: inline-block;
-    padding: 4px 12px;
-    border-radius: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 2px 4px 2px 0;
-    border: 1px solid;
+    margin-right: 8px;
+    transition: all 0.3s ease;
 }
 
-/* Security/Critical tags - Purple theme */
-.guide-card .critical,
-.guide-card .security,
-.guide-card [class*="critical"],
-.guide-card [class*="security"] {
-    background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%) !important;
-    color: #5b21b6 !important;
-    border-color: #7c3aed !important;
+.guide-tag.critical-security {
+    background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+    color: #5b21b6;
+    border: 1px solid #7c3aed;
 }
 
-/* Compliance/ISO tags - Green theme */
-.guide-card .compliance,
-.guide-card .iso,
-.guide-card [class*="compliance"],
-.guide-card [class*="iso"],
-.guide-card [class*="27001"] {
-    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%) !important;
-    color: #065f46 !important;
-    border-color: #10b981 !important;
+.guide-tag.iso-compliance {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    color: #065f46;
+    border: 1px solid #10b981;
 }
 
-/* Coming Soon buttons */
-.guide-card .coming-soon,
-.guide-card [class*="coming"] {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
-    color: #64748b !important;
-    border-color: #94a3b8 !important;
+.guide-tag.coming-soon {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #64748b;
+    border: 1px solid #94a3b8;
     cursor: not-allowed;
+}
+
+/* Coming Soon Card States */
+.coming-soon-card {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.coming-soon-card:hover {
+    opacity: 0.8;
+}
+
+.coming-soon-title {
+    color: #6b7280 !important;
+}
+
+.coming-soon-text {
+    color: #9ca3af !important;
+}
+
+.section-description {
+    margin-bottom: 24px;
 }
 
 .guides-grid {
