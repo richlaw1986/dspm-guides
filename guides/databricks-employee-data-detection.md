@@ -57,6 +57,12 @@ layout: base.njk
             </div>
         </div>
     </div>
+	
+    <div class="cyera-highlight">
+        <h3>Introducing Cyera</h3>
+        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating the discovery of employee data in Databricks, Cyera ensures you stay ahead of accidental exposures and meet ISO 27001 audit requirements in real time.</p>
+    </div>
+	
 
     <div class="content-section">
         <h2 class="section-title">Step-by-Step Guide</h2>
@@ -87,10 +93,6 @@ layout: base.njk
         </div>
     </div>
 
-    <div class="cyera-highlight">
-        <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating the discovery of employee data in Databricks, Cyera ensures you stay ahead of accidental exposures and meet ISO 27001 audit requirements in real time.</p>
-    </div>
 
     <div class="content-section architecture-section">
         <h2 class="section-title">Architecture & Workflow</h2>
