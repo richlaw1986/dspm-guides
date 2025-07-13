@@ -509,23 +509,6 @@ body {
     overflow: hidden;
 }
 
-.flow-diagram::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(124, 58, 237, 0.05), transparent);
-    animation: flowShimmer 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes flowShimmer {
-    0%, 100% { transform: translateX(-100%); }
-    50% { transform: translateX(100%); }
-}
-
 .flow-diagram h4 {
     color: #5b21b6;
     margin-bottom: 32px;
