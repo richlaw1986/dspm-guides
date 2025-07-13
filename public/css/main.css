@@ -765,6 +765,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
+@media (max-width: 768px) {
     .header h1 {
         font-size: 2rem;
     }
@@ -786,11 +788,23 @@ body {
     }
 
     .site-nav {
-        display: none;
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
     }
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+
+    .guides-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-card {
+        padding: 20px;
     }
 }
