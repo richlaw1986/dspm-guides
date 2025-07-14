@@ -2,8 +2,12 @@
 title: "Detect PII in Databricks"
 description: "Learn how to detect PII in Databricks. Follow our step-by-step guidance & best practices."
 layout: base.njk
-risk: "Data Exposure"
-regulation: "GDPR"
+tags: ["guides"]
+difficulty: "intermediate"
+platform: "databricks"
+topics: ["Data Exposure", "GDPR"]
+status: "published"
+order: 1
 ---
 
 <div class="container">

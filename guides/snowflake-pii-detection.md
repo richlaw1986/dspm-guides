@@ -2,6 +2,12 @@
 title: "Detect PII in Snowflake"
 description: "Learn how to detect PII in Snowflake. Follow our step-by-step guidance & best practices."
 layout: base.njk
+tags: ["guides"]
+difficulty: "intermediate"
+platform: "databricks"
+topics: ["Critical Security", "ISO GDPR"]
+status: "published"
+order: 1
 ---
 
 <div class="container">
