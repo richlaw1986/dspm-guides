@@ -1,6 +1,12 @@
 ---
-title: "Detect Employee Data in Databricks"
-description: "Learn how to detect employee data in Databricks. Follow our step-by-step guidance & best practices."
+title: "Databricks Employee Data Detection"
+description: "Learn how to detect employee data in Databricks environments. Follow step-by-step guidance for ISO 27001 compliance."
+tags: ["guides"]
+difficulty: "intermediate"
+platform: "databricks"
+topics: ["Critical Security", "ISO 27001"]
+status: "published"
+order: 1
 layout: base.njk
 ---
 

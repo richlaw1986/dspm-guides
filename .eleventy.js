@@ -1,11 +1,14 @@
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({"public/css": "css"});
+eleventyConfig.addPassthroughCopy({"public/css": "css"});
+  // Create a collection for guides
+  eleventyConfig.addCollection("guides", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("guides/*.md");
+  });
   
   return {
     dir: {
-      input: ".",
-      output: "_site",
-      includes: "_includes"
+      input: "src",
+      output: "_site"
     }
   };
 };
