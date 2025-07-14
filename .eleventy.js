@@ -8,7 +8,7 @@ eleventyConfig.addPassthroughCopy({"public/css": "css"});
   return {
     dir: {
       input: "src",
-      output: "_site"
+      output: "_includes"
     }
   };
 };
