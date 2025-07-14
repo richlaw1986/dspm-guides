@@ -1215,3 +1215,41 @@ body {
         justify-content: center;
     }
 }
+* Alternative: Hamburger Menu Approach */
+@media (max-width: 768px) {
+    .site-header-content {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 20px;
+        align-items: center;
+    }
+    
+    .site-logo {
+        margin-bottom: 12px;
+    }
+    
+    .site-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .nav-link {
+        text-align: center;
+        padding: 8px 4px;
+        font-size: 0.75rem;
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        border-color: #7c3aed;
+        color: #5b21b6;
+    }
+}
