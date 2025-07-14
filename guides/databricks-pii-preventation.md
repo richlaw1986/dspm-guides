@@ -4,7 +4,7 @@ description: "Learn how to prevent PII exposure in Databricks environments. Foll
 tags: ["guides"]
 difficulty: "advanced"
 platform: "databricks"
-risk: "data exposure"
+risk: "Data Exposure"
 regulation: "GDPR"
 status: "published"
 order: 2
