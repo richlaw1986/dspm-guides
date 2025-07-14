@@ -1193,30 +1193,30 @@ body {
     margin-bottom: 16px;
 }
 
-/* Mobile Responsive */
+/* REPLACE the existing @media (max-width: 768px) block with this: */
+
 @media (max-width: 768px) {
-    .platform-hero h1 {
+    .header h1 {
         font-size: 2rem;
     }
     
-    .platform-hero p {
+    .header p {
         font-size: 1rem;
     }
     
-    .platform-stats {
-        grid-template-columns: repeat(2, 1fr);
+    .container {
+        padding: 16px;
     }
     
-    .concerns-grid {
-        grid-template-columns: 1fr;
+    .content-section {
+        padding: 24px;
     }
     
-    .guide-filters {
-        justify-content: center;
+    .header {
+        padding: 32px;
     }
-}
-* Alternative: Hamburger Menu Approach */
-@media (max-width: 768px) {
+
+    /* FIXED MOBILE HEADER STYLES */
     .site-header-content {
         flex-direction: column;
         height: auto;
@@ -1226,6 +1226,7 @@ body {
     
     .site-logo {
         margin-bottom: 12px;
+        font-size: 1.25rem;
     }
     
     .site-nav {
@@ -1251,5 +1252,39 @@ body {
         background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
         border-color: #7c3aed;
         color: #5b21b6;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .guides-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-card {
+        padding: 20px;
+    }
+    
+    /* Platform page mobile styles */
+    .platform-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .platform-hero p {
+        font-size: 1rem;
+    }
+    
+    .platform-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .concerns-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guide-filters {
+        justify-content: center;
     }
 }
