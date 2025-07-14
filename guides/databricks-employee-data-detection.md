@@ -4,7 +4,8 @@ description: "Learn how to detect employee data in Databricks environments. Foll
 tags: ["guides"]
 difficulty: "intermediate"
 platform: "databricks"
-topics: ["Critical Security", "ISO 27001"]
+risk: "Critical Security"
+regulation: "ISO 27001"
 status: "published"
 order: 1
 layout: base.njk

@@ -5,7 +5,8 @@ layout: base.njk
 tags: ["guides"]
 difficulty: "intermediate"
 platform: "databricks"
-topics: ["Data Exposure", "GDPR"]
+risk: "Data Exposure"
+regulation: "GDPR"
 status: "published"
 order: 1
 ---

@@ -5,7 +5,8 @@ layout: base.njk
 tags: ["guides"]
 difficulty: "intermediate"
 platform: "databricks"
-topics: ["Critical Security", "ISO GDPR"]
+risk: "Critical Security"
+regulation: "GDPR"
 status: "published"
 order: 1
 ---

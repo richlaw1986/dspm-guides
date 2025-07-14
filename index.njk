@@ -7,33 +7,33 @@ layout: base.njk
 <div class="container">
     
    <div class="content-section">
-           <h2 class="section-title">Available Guides</h2>
-           <p>Comprehensive guides for detecting and managing sensitive data across major cloud platforms and data warehouses.</p>
+          <h2 class="section-title">Available Guides</h2>
+          <p>Comprehensive guides for detecting and managing sensitive data across major cloud platforms and data warehouses.</p>
         
-           <div class="component-grid">
-               {% for guide in collections.guides %}
-               <div class="component-card{% if guide.data.status == 'coming-soon' %} coming-soon-card{% endif %}">
-                   <h4>
-                       {% if guide.data.status == 'published' %}
-                       <a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a>
-                       {% else %}
-                       <span class="coming-soon-title">{{ guide.data.title }}</span>
-                       {% endif %}
-                   </h4>
-                   <p{% if guide.data.status == 'coming-soon' %} class="coming-soon-text"{% endif %}>{{ guide.data.description }}</p>
-                   <div class="guide-tags-container">
-                       {% if guide.data.status == 'published' %}
-                           {% for topic in guide.data.topics %}
-                           <span class="guide-tag {% if topic == 'Critical Security' %}critical-security{% elif topic == 'ISO 27001' %}iso-compliance{% endif %}">{{ topic }}</span>
-                           {% endfor %}
-                       {% else %}
-                           <span class="guide-tag coming-soon">Coming Soon</span>
-                       {% endif %}
-                   </div>
-               </div>
-               {% endfor %}
-           </div>
-       </div>
+          <div class="component-grid">
+              {% for guide in collections.guides %}
+              <div class="component-card{% if guide.data.status == 'coming-soon' %} coming-soon-card{% endif %}">
+                  <h4>
+                      {% if guide.data.status == 'published' %}
+                      <a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a>
+                      {% else %}
+                      <span class="coming-soon-title">{{ guide.data.title }}</span>
+                      {% endif %}
+                  </h4>
+                  <p{% if guide.data.status == 'coming-soon' %} class="coming-soon-text"{% endif %}>{{ guide.data.description }}</p>
+                  <div class="guide-tags-container">
+                      {% if guide.data.status == 'published' %}
+                          {% for topic in guide.data.topics %}
+                          <span class="guide-tag {% if topic == 'Critical Security' %}critical-security{% elif topic == 'ISO 27001' %}iso-compliance{% endif %}">{{ topic }}</span>
+                          {% endfor %}
+                      {% else %}
+                          <span class="guide-tag coming-soon">Coming Soon</span>
+                      {% endif %}
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
     
     <div class="content-section">
         <h2 class="section-title">Who's This Site For?</h2>
