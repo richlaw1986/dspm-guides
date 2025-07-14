@@ -738,14 +738,14 @@ body {
     transition: all 0.3s ease;
 }
 
-.guide-tag.critical-security {
+.guide-tag.risk {
 
     background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
     color: #065f46;
     border: 1px solid #10b981;
 }
 
-.guide-tag.iso-compliance {
+.guide-tag.regulation {
     background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
     color: #5b21b6;
     border: 1px solid #7c3aed;
