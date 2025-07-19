@@ -4,23 +4,24 @@ pagination:
   data: collections.guides
   size: 1000
   alias: guides
-  before: function(paginationData) {
-    const risks = {};
-    paginationData.forEach(guide => {
-      if (guide.data.risk && guide.data.status === 'published') {
-        const risk = guide.data.risk;
-        if (!risks[risk]) {
-          risks[risk] = [];
+  before: >-
+    function(paginationData) {
+      const risks = {};
+      paginationData.forEach(guide => {
+        if (guide.data.risk && guide.data.status === 'published') {
+          const risk = guide.data.risk;
+          if (!risks[risk]) {
+            risks[risk] = [];
+          }
+          risks[risk].push(guide);
         }
-        risks[risk].push(guide);
-      }
-    });
-    return Object.entries(risks).map(([risk, guides]) => ({
-      risk,
-      guides,
-      slug: risk.toLowerCase().replace(/\s+/g, '-')
-    }));
-  }
+      });
+      return Object.entries(risks).map(([risk, guides]) => ({
+        risk,
+        guides,
+        slug: risk.toLowerCase().replace(/\s+/g, '-')
+      }));
+    }
 permalink: "risk/{{ pagination.items[0].slug }}/"
 eleventyComputed:
   title: "{{ pagination.items[0].risk }} Prevention Guides"
