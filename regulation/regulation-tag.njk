@@ -1,0 +1,79 @@
+---
+layout: base.njk
+pagination:
+  data: collections.guides
+  size: 1000
+  alias: guides
+  before: function(paginationData) {
+    const regulations = {};
+    paginationData.forEach(guide => {
+      if (guide.data.regulation && guide.data.status === 'published') {
+        const reg = guide.data.regulation;
+        if (!regulations[reg]) {
+          regulations[reg] = [];
+        }
+        regulations[reg].push(guide);
+      }
+    });
+    return Object.entries(regulations).map(([regulation, guides]) => ({
+      regulation,
+      guides,
+      slug: regulation.toLowerCase().replace(/\s+/g, '-')
+    }));
+  }
+permalink: "regulation/{{ pagination.items[0].slug }}/"
+eleventyComputed:
+  title: "{{ pagination.items[0].regulation }} Compliance Guides"
+  description: "DSPM guides for {{ pagination.items[0].regulation }} compliance and data protection requirements."
+---
+
+<div class="container">
+    <div class="header">
+        <h1>{{ pagination.items[0].regulation }} Compliance Guides</h1>
+        <p>Comprehensive DSPM guides for {{ pagination.items[0].regulation }} compliance and data protection requirements.</p>
+        <div class="badge regulation">{{ pagination.items[0].regulation }}</div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        <p>{{ pagination.items[0].guides.length }} guide{% if pagination.items[0].guides.length != 1 %}s{% endif %} for {{ pagination.items[0].regulation }} compliance:</p>
+        
+        <div class="component-grid">
+            {% for guide in pagination.items[0].guides %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    {% if guide.data.risk %}
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% endif %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">About {{ pagination.items[0].regulation }}</h2>
+        {% if pagination.items[0].regulation == "GDPR" %}
+        <p>The General Data Protection Regulation (GDPR) is a comprehensive data protection law that governs how organizations collect, process, and store personal data of EU residents. These guides help you implement the technical and organizational measures required for GDPR compliance in your data infrastructure.</p>
+        {% elif pagination.items[0].regulation == "HIPAA" %}
+        <p>The Health Insurance Portability and Accountability Act (HIPAA) establishes national standards for protecting health information. These guides provide step-by-step instructions for securing protected health information (PHI) in cloud data platforms.</p>
+        {% elif pagination.items[0].regulation == "SOC 2" %}
+        <p>SOC 2 is an auditing procedure that ensures service providers securely manage data to protect client interests. These guides help you implement the security controls and monitoring required for SOC 2 Type II compliance.</p>
+        {% elif pagination.items[0].regulation == "ISO 27001" %}
+        <p>ISO 27001 is an international standard for information security management systems. These guides provide practical implementation steps for the data security controls required for ISO 27001 certification.</p>
+        {% else %}
+        <p>{{ pagination.items[0].regulation }} compliance requires specific data protection measures and security controls. These guides provide practical implementation steps for meeting regulatory requirements.</p>
+        {% endif %}
+    </div>
+
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/risk/" class="action-button">🎯 Browse by Risk Type</a>
+        </div>
+    </div>
+</div>

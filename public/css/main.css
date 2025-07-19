@@ -1193,6 +1193,68 @@ body {
     margin-bottom: 16px;
 }
 
+/* Tag link styles */
+.guide-link-title {
+    color: #111827;
+    text-decoration: none;
+}
+
+.guide-link-title:hover {
+    color: #dc2626;
+}
+
+.guide-tags-container {
+    margin-top: 16px;
+}
+
+.guide-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.guide-tag.risk {
+    background: #dc2626;
+    color: white;
+}
+
+.guide-tag.risk:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+}
+
+.guide-tag.regulation {
+    background: #1f2937;
+    color: white;
+}
+
+.guide-tag.regulation:hover {
+    background: #111827;
+    transform: translateY(-1px);
+}
+
+.guide-tag.coming-soon {
+    background: #6b7280;
+    color: white;
+}
+
+.coming-soon-card {
+    opacity: 0.6;
+}
+
+.coming-soon-title {
+    color: #6b7280;
+}
+
+.coming-soon-text {
+    color: #9ca3af;
+}
+
 /* REPLACE the existing @media (max-width: 768px) block with this: */
 
 @media (max-width: 768px) {
