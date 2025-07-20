@@ -5,48 +5,44 @@ layout: base.njk
 ---
 
 <div class="container">
-    <div class="header">
-        <h1>DSPM Guides</h1>
-        <p>Professional data security posture management guides for cybersecurity experts</p>
-        <a href="/security-focus" class="badge">Security Focus</a>
-        <a href="/enterprise-ready" class="badge regulation">Enterprise Ready</a>
-    </div>
     
-    <div class="content-section">
-        <h2 class="section-title">Available Guides</h2>
-        <p>Comprehensive guides for detecting and managing sensitive data across major cloud platforms and data warehouses.</p>
+  <div class="content-section">
+            <h2 class="section-title">Available Guides</h2>
+            <p>Comprehensive guides for detecting and managing sensitive data across major cloud platforms and data warehouses.</p>
         
-        <div class="component-grid">
-            {% for guide in collections.guides %}
-            <div class="component-card{% if guide.data.status == 'coming-soon' %} coming-soon-card{% endif %}">
-                <h4>
-                    {% if guide.data.status == 'published' %}
-                    <a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a>
-                    {% else %}
-                    <span class="coming-soon-title">{{ guide.data.title }}</span>
-                    {% endif %}
-                </h4>
-                <p{% if guide.data.status == 'coming-soon' %} class="coming-soon-text"{% endif %}>{{ guide.data.description }}</p>
-                <div class="guide-tags-container">
-                    {% if guide.data.status == 'published' %}
-                        {% if guide.data.risk %}
-                        <a href="/risk/{{ guide.data.risk | lower | replace(' ', '-') }}/" class="guide-tag risk">{{ guide.data.risk }}</a>
+            <div class="component-grid">
+                {% for guide in collections.guides %}
+                <div class="component-card{% if guide.data.status == 'coming-soon' %} coming-soon-card{% endif %}">
+                    <h4>
+                        {% if guide.data.status == 'published' %}
+                        <a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a>
+                        {% else %}
+                        <span class="coming-soon-title">{{ guide.data.title }}</span>
                         {% endif %}
-                        {% if guide.data.regulation %}
-                        <a href="/regulation/{{ guide.data.regulation | lower | replace(' ', '-') }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
+                    </h4>
+                    <p{% if guide.data.status == 'coming-soon' %} class="coming-soon-text"{% endif %}>{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        {% if guide.data.status == 'published' %}
+                            {% if guide.data.risk %}
+                            <a href="/risk/{{ guide.data.risk | lower | replace(' ', '-') }}/" class="guide-tag risk">{{ guide.data.risk }}</a>
+                            {% endif %}
+                            {% if guide.data.regulation %}
+                            <a href="/regulation/{{ guide.data.regulation | lower | replace(' ', '-') }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
+                            {% endif %}
+                        {% else %}
+                            <span class="guide-tag coming-soon">Coming Soon</span>
                         {% endif %}
-                    {% else %}
-                        <span class="guide-tag coming-soon">Coming Soon</span>
-                    {% endif %}
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
+  
+   
     
     <div class="content-section">
         <h2 class="section-title">Who's This Site For?</h2>
-        <p>These guides are designed for cybersecurity professionals who need to implement data security posture management across cloud platforms.</p>
+        <p class="section-description">These guides are designed for cybersecurity professionals who need to implement data security posture management across cloud platforms.</p>
         
         <div class="best-practices-grid">
             <div class="practice-card">
@@ -118,7 +114,7 @@ layout: base.njk
     
     <div class="content-section next-steps">
         <h2 class="section-title">Ready to Start?</h2>
-        <p>Choose a guide that matches your current platform and security priorities.</p>
+        <p class="section-description">Choose a guide that matches your current platform and security priorities.</p>
         <div>
             <a href="#" class="action-button">📚 View All Resources</a>
         </div>
