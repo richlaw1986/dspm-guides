@@ -531,10 +531,7 @@ body {
     margin-bottom: 32px;
     font-weight: 700;
     font-size: 1.5rem;
-	color: #7c3aed;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #111827;
 }
 
 .flow-container {
