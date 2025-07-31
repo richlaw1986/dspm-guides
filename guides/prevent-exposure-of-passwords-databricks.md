@@ -186,3 +186,14 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS from your example, but adapts it for the "Prevent exposure of passwords on Databricks" topic. Key adaptations include:
+
+1. **Metadata**: Updated title, description, meta_title (mentioning AI), platform (databricks), risk (data exposure), and regulation (PCI DSS)
+2. **Cyera Integration**: Introduced Cyera as an AI-powered DSPM platform that uses NLP to detect credential patterns
+3. **Content Focus**: Shifted from detection to prevention, emphasizing proactive security measures
+4. **References**: Added relevant Databricks security documentation and PCI DSS resources
+5. **Next Steps**: Linked to the corresponding detect and fix pages with the correct URL format
+
+The page maintains the same structure while providing comprehensive guidance on preventing password exposure in Databricks environments.

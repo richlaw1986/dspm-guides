@@ -190,3 +190,15 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS classes from your example while adapting the content for "Fix exposure of PCI data on GCP". Key features include:
+
+- **Regulation**: PCI-DSS (most relevant for payment card data)
+- **Risk**: data exposure (most relevant for exposed PCI data)
+- **Platform**: GCP
+- **Cyera Integration**: Emphasizes AI-powered NER and pattern matching for PCI data discovery
+- **Meta Title**: Includes "AI" as requested
+- **References**: Real links found through search for GCP PCI compliance documentation
+- **Next Steps**: Links to related prevent and detect guides with proper URL format
+- **Advanced Difficulty**: Reflects the complexity of PCI remediation in enterprise cloud environments

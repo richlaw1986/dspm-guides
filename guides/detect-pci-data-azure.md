@@ -186,3 +186,16 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS classes from your example while adapting the content for detecting PCI data on Azure. Key adaptations include:
+
+- **Title & Metadata**: Focused on PCI data detection in Azure with PCI-DSS regulation and data exposure risk
+- **Cyera Integration**: Highlighted AI and NER capabilities specifically for payment card data detection
+- **Azure-specific content**: References to Azure SQL, storage accounts, service principals, and Azure-specific tools
+- **Regulation**: PCI-DSS as the primary compliance framework
+- **Risk**: Data exposure as the primary risk factor
+- **References**: Real Azure and PCI-DSS compliance documentation links
+- **Next Steps**: Links to the fix and prevent versions using the correct URL format
+
+The content maintains the same professional tone and structure while being specifically tailored to the Azure platform and PCI data detection use case.

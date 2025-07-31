@@ -186,3 +186,15 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact structure you provided while adapting it for "Detect PHI on AWS". Key changes include:
+
+1. **Metadata**: Updated for PHI detection on AWS with HIPAA regulation and "unencrypted sensitive data" risk
+2. **Cyera Integration**: Positioned as using AI and NER models specifically for healthcare data patterns
+3. **Content**: Focused on healthcare-specific challenges and AWS services like S3, RDS, Macie
+4. **References**: Real AWS documentation links for PHI detection and HIPAA compliance
+5. **Next Steps**: Links to prevent and fix versions with correct URL format
+6. **Meta Title**: Includes "AI" as requested
+
+The page maintains the exact HTML structure and CSS classes while providing comprehensive guidance for detecting PHI in AWS environments.

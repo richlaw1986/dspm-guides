@@ -186,3 +186,15 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact same HTML structure and CSS classes as your example, while adapting the content for "Fix exposure of PII on GCP". Key adaptations include:
+
+1. **Metadata**: Updated for GCP platform, GDPR regulation, and data exposure risk
+2. **Cyera Integration**: Highlights AI-powered NER capabilities for PII detection and intelligent remediation workflows
+3. **GCP-specific content**: References Cloud Storage, BigQuery, Cloud SQL, DLP API, and IAM
+4. **Step-by-step guide**: Focused on remediation actions (assess, restrict access, de-identify, monitor)
+5. **References**: Real links to official Google Cloud documentation and relevant guides
+6. **Next Steps**: Links to the prevent and detect versions with proper URL format
+
+The content maintains the professional tone and technical depth while being specifically tailored to fixing PII exposure issues in Google Cloud Platform environments.

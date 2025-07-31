@@ -186,3 +186,13 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS classes from your example, adapted for detecting customer data on Databricks with:
+
+- **GDPR compliance focus** (most relevant regulation for customer data)
+- **Data exposure risk** (primary concern for customer data detection)
+- **AI-powered Cyera integration** highlighting NLP capabilities for customer data pattern recognition
+- **Real documentation links** in the References section
+- **Proper relative links** in Next Steps section following the URL format pattern
+- **Customer-specific terminology** throughout while maintaining the structure

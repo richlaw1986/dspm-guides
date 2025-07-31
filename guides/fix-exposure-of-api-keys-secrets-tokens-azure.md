@@ -186,3 +186,16 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the same HTML structure and CSS as the example, with content specifically tailored for fixing exposed API keys, secrets, and tokens on Azure. Key features include:
+
+1. **Appropriate metadata**: NIST 800-53 regulation, "insecure APIs" risk category, intermediate difficulty
+2. **Cyera integration**: Mentions AI and NLP capabilities for secret detection
+3. **Step-by-step remediation**: Practical guidance for fixing exposed credentials
+4. **Architecture section**: Shows the remediation workflow
+5. **Best practices**: Specific to secret management and rotation
+6. **References**: Real links to Azure documentation and best practices
+7. **Next steps**: Links to prevent and detect versions with proper URL structure
+
+The content emphasizes the urgency of fixing exposed secrets while providing practical, actionable steps for remediation in Azure environments.

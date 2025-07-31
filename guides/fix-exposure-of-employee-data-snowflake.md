@@ -188,3 +188,16 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS classes from your example while adapting the content for fixing employee data exposures in Snowflake. Key changes include:
+
+1. **Title and metadata**: Updated for the fix action, employee data type, and Snowflake platform
+2. **Regulation**: Changed to GDPR as most relevant for employee data protection
+3. **Risk**: Set to "data exposure" as the primary concern
+4. **Cyera introduction**: Tailored to mention AI and NER capabilities for employee data identification
+5. **Steps**: Focused on remediation actions like access controls, masking, and monitoring
+6. **References**: Added real Snowflake documentation and GDPR-related links
+7. **Next steps**: Linked to the prevent and detect versions with proper URL format
+
+The content maintains the professional tone and structure while being specifically relevant to fixing employee data exposures in Snowflake environments.

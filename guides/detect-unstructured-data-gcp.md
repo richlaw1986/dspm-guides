@@ -186,3 +186,15 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS classes from your example while adapting the content for detecting unstructured data on GCP. Here are the key adaptations I made:
+
+1. **Title & Meta**: Updated to focus on GCP unstructured data detection with AI mentioned in meta title
+2. **Risk & Regulation**: Selected "shadow data" as the most relevant risk and "GDPR" as the regulation since unstructured data often contains personal information
+3. **Cyera Integration**: Highlighted how Cyera uses AI and NLP techniques specifically for analyzing unstructured content like documents and free-form text
+4. **Platform-specific content**: Adapted all technical details for GCP (Cloud Storage, gcloud CLI, service accounts, etc.)
+5. **References**: Added real, relevant links found through search about GCP best practices, DLP, and GDPR compliance for unstructured data
+6. **Next Steps**: Linked to the corresponding Prevent and Fix pages with the correct URL format
+
+The content maintains the same professional tone and structure while being specifically tailored to the GCP unstructured data detection use case.

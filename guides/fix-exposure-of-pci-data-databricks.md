@@ -186,3 +186,15 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact HTML structure and CSS classes from the example, adapted for the topic of "Fix exposure of PCI data on Databricks." Key adaptations include:
+
+1. **Metadata**: Updated for PCI-DSS compliance, data exposure risk, and advanced difficulty
+2. **Content Focus**: Shifted from detection to remediation of PCI data exposures
+3. **Cyera Integration**: Highlighted AI-powered NER capabilities specifically for PCI data classification
+4. **Step-by-step Guide**: Focused on remediation actions like access control, data masking, and monitoring
+5. **References**: Added real links found through search related to Databricks PCI compliance
+6. **Next Steps**: Links to related Prevent and Detect guides using the specified URL format
+
+The content maintains the professional tone and technical depth while being specifically tailored to PCI data remediation scenarios in Databricks environments.

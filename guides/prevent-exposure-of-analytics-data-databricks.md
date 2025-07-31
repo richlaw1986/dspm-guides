@@ -185,3 +185,13 @@ layout: base.njk
         </div>
     </div>
 </div>
+```
+
+This page follows the exact same HTML structure and CSS as the example, while adapting the content for preventing exposure of analytics data on Databricks. Key adaptations include:
+
+- **Regulation**: Changed to GDPR as it's most relevant for analytics data privacy
+- **Risk**: Set to "data exposure" as the primary concern
+- **Cyera Integration**: Emphasizes AI-powered NER and pattern matching for analytics data classification
+- **Content Focus**: Shifted from detection to prevention, emphasizing proactive controls, Unity Catalog governance, and automated policy enforcement
+- **References**: Added real links found through search for Databricks access control, GDPR requirements, and data governance best practices
+- **Next Steps**: Links to detect and fix versions of the same topic following the URL pattern
