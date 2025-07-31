@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{ title }} | {% endif %}DSPM Guides</title>
     <meta name="description" content="{{ description or 'Professional DSPM guides for cybersecurity experts' }}">
+    <link rel="canonical" href="{{ canonical_url or ('/guides/' + page.fileSlug) }}">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
