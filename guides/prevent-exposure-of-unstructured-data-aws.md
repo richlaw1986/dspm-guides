@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Prevent exposure of unstructured data on AWS":
-
-```html
 ---
 title: "AWS Unstructured Data Exposure Prevention"
 description: "Learn how to prevent exposure of unstructured data in AWS environments. Follow step-by-step guidance for GDPR compliance and data protection."
@@ -189,15 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and CSS classes from your example while adapting the content for preventing exposure of unstructured data on AWS. Key adaptations include:
-
-- **Regulation**: GDPR (most relevant for unstructured data protection)
-- **Risk**: Data exposure (primary concern for unstructured data)
-- **Platform**: AWS focus with S3, EFS, and other storage services
-- **Cyera Integration**: Emphasizes AI and NER (Natural Language Processing) for unstructured data classification
-- **References**: Real AWS documentation links found through search
-- **Next Steps**: Links to detect and fix variations using the URL pattern you specified
-
-The content maintains the technical depth and practical guidance style while being specifically tailored to AWS unstructured data protection scenarios.

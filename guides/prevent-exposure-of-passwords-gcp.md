@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Prevent exposure of passwords on GCP":
-
-```html
 ---
 title: "GCP Password Exposure Prevention"
 description: "Learn how to prevent password exposure in GCP environments. Follow step-by-step guidance for SOC 2 compliance."
@@ -189,13 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and CSS classes from your example while adapting the content for "Prevent exposure of passwords on GCP". Key adaptations include:
-
-1. **Metadata**: Updated title, description, meta_title (with AI mention), platform (GCP), risk (unrestricted public access), and regulation (SOC 2)
-2. **Cyera Integration**: Positioned as an AI-powered DSPM platform using NLP for password pattern detection
-3. **Content Focus**: Shifted from detection to prevention strategies including Secret Manager, IAM policies, and proactive monitoring
-4. **References**: Added relevant GCP security and password management links from the search results
-5. **Next Steps**: Linked to related Detect and Fix pages with proper URL structure
-6. **Risk/Regulation**: Selected SOC 2 as most relevant for password security controls and "unrestricted public access" as the primary risk

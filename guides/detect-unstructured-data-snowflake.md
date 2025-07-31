@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for detecting unstructured data on Snowflake:
-
-```html
 ---
 title: "Snowflake Unstructured Data Detection"
 description: "Learn how to detect unstructured data in Snowflake environments. Follow step-by-step guidance for GDPR compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

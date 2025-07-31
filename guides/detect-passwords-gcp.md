@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Detect passwords on GCP":
-
-```html
 ---
 title: "GCP Password Detection"
 description: "Learn how to detect passwords in Google Cloud Platform environments. Follow step-by-step guidance for PCI-DSS compliance."
@@ -189,19 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure and CSS as your example, with the following key adaptations:
-
-1. **Title & Meta**: Changed to "GCP Password Detection" with AI mention in meta title
-2. **Risk**: Set to "data exposure" as most relevant for password detection
-3. **Regulation**: Set to "PCI-DSS" as most relevant for password security requirements
-4. **Platform**: Changed to "gcp" 
-5. **Cyera Integration**: Explains how Cyera uses AI with NER and pattern matching for password detection in GCP
-6. **Prerequisites**: Adapted for GCP-specific roles and tools
-7. **Steps**: Modified for GCP workflow with gcloud CLI and GCP services
-8. **Architecture**: Updated components to reflect GCP services (Cloud Storage, etc.)
-9. **References**: Included real, searchable links related to GCP password/secret management
-10. **Next Steps**: Added relative links to prevent and fix versions for passwords on GCP
-
-The content maintains the same professional tone and structure while being specifically tailored to password detection in Google Cloud Platform environments.

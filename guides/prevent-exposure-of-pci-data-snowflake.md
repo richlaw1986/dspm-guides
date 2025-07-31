@@ -1,6 +1,3 @@
-Based on my research, here's the complete Eleventy page for "Prevent exposure of PCI data on Snowflake":
-
-```html
 ---
 title: "Snowflake PCI Data Prevention"
 description: "Learn how to prevent exposure of PCI data in Snowflake environments. Follow step-by-step guidance for PCI-DSS compliance."
@@ -188,4 +185,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

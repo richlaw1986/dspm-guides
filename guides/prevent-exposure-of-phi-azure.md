@@ -1,6 +1,3 @@
-Now I'll create the Eleventy page for "Prevent exposure of PHI on Azure":
-
-```html
 ---
 title: "Azure PHI Exposure Prevention"
 description: "Learn how to prevent exposure of PHI in Azure environments. Follow step-by-step guidance for HIPAA compliance and data protection."
@@ -189,17 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure as the example while adapting the content for "Prevent exposure of PHI on Azure". Key adaptations include:
-
-- **Title & Meta**: Changed to focus on prevention of PHI exposure on Azure
-- **Regulation**: Set to HIPAA as most relevant for PHI
-- **Risk**: Set to "data exposure" as the primary concern
-- **Platform**: Changed to "azure"
-- **Cyera Integration**: Describes how Cyera uses AI-powered NER to identify PHI patterns specific to healthcare data
-- **Content**: Adapted all sections to focus on Azure-specific PHI prevention strategies
-- **References**: Included real links found through search to Azure HIPAA compliance resources
-- **Next Steps**: Links to detect and fix versions following the URL pattern specified
-
-The content maintains the same structure while being specifically tailored to Azure PHI prevention scenarios and HIPAA compliance requirements.

@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Fix exposure of API keys / secrets / tokens on GCP":
-
-```html
 ---
 title: "GCP API Keys and Secrets Exposure Remediation"
 description: "Learn how to fix exposed API keys, secrets, and tokens in GCP environments. Follow step-by-step guidance for SOC 2 compliance."
@@ -191,15 +188,3 @@ gcloud api-keys delete [KEY_ID]</div>
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and CSS classes from your example while adapting the content for fixing exposed API keys/secrets/tokens in GCP. Key adaptations include:
-
-- **Regulation**: Changed to SOC 2 as it's most relevant for API security controls
-- **Risk**: Set to "insecure APIs" as the primary security concern
-- **Cyera integration**: Emphasizes AI/NLP capabilities for secrets detection in code and configurations
-- **Step-by-step guide**: Focuses on immediate containment, secure regeneration, deployment, and monitoring
-- **References**: Includes actual Google Cloud documentation and security resources found through search
-- **Next steps**: Links to related prevent/detect pages following your URL structure
-
-The content maintains the urgency and technical depth appropriate for a remediation guide while providing practical, actionable steps for GCP environments.

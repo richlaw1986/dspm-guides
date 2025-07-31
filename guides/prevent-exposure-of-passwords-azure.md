@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Prevent exposure of passwords on Azure":
-
-```html
 ---
 title: "Azure Password Exposure Prevention"
 description: "Learn how to prevent password exposure in Azure environments. Follow step-by-step guidance for PCI-DSS compliance."
@@ -189,18 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and CSS framework from your example, while adapting the content for "Prevent exposure of passwords on Azure". Key adaptations include:
-
-1. **Metadata**: Updated title, description, meta title (mentions AI), tags, platform (azure), risk (unencrypted sensitive data), and regulation (PCI-DSS)
-
-2. **Cyera Integration**: Positioned Cyera as an AI-powered DSPM platform that uses pattern recognition and NLP to detect password exposures
-
-3. **Content Focus**: Shifted from detection to prevention, emphasizing proactive measures like Key Vault, managed identities, and secure DevOps practices
-
-4. **References**: Added relevant Azure documentation and best practices links found through search
-
-5. **Next Steps**: Links to detect and fix versions following the URL pattern you specified
-
-The page maintains the same professional structure while providing comprehensive guidance on preventing password exposure in Azure environments.

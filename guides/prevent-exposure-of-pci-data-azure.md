@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Prevent exposure of PCI data on Azure":
-
-```html
 ---
 title: "Azure PCI Data Exposure Prevention"
 description: "Learn how to prevent exposure of PCI data in Azure environments. Follow step-by-step guidance for PCI-DSS compliance and data protection."
@@ -189,15 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure and CSS as the example, adapted for "Prevent exposure of PCI data on Azure". Key adaptations include:
-
-- **Metadata**: Updated title, description, platform (azure), risk (unencrypted sensitive data), regulation (PCI-DSS)
-- **Content**: Focused on prevention strategies for PCI data in Azure
-- **Cyera Integration**: Mentioned AI capabilities including NER for PCI data classification and real-time protection
-- **Technical Steps**: Azure-specific services like Key Vault, NSGs, and Defender for Cloud
-- **References**: Real Azure documentation links found through search
-- **Next Steps**: Links to detect and fix variants with proper URL format
-
-The page maintains the same professional structure while being specifically tailored to Azure PCI data prevention requirements.

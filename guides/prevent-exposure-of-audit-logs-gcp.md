@@ -1,6 +1,3 @@
-Now I'll create the Eleventy page for "Prevent exposure of audit logs on GCP":
-
-```html
 ---
 title: "GCP Audit Logs Exposure Prevention"
 description: "Learn how to prevent exposure of audit logs in Google Cloud Platform environments. Follow step-by-step guidance for NIST 800-53 compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

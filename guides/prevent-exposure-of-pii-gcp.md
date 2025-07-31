@@ -1,6 +1,3 @@
-Here is your complete Eleventy page for "Prevent exposure of PII on GCP":
-
-```html
 ---
 title: "GCP PII Exposure Prevention"
 description: "Learn how to prevent exposure of PII in Google Cloud Platform environments. Follow step-by-step guidance for GDPR compliance."
@@ -189,16 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure and CSS classes as your example, with content adapted for preventing PII exposure on GCP. The key adaptations include:
-
-- **Platform**: Changed to GCP with relevant services (Cloud DLP, VPC Service Controls, IAM, etc.)
-- **Action**: Focused on prevention rather than detection
-- **Regulation**: Used GDPR as most relevant for PII protection
-- **Risk**: Selected "data exposure" as the primary risk
-- **Cyera Integration**: Emphasized AI and NLP capabilities for PII classification
-- **References**: Added real, searchable links to official GCP documentation
-- **Next Steps**: Links to the detect and fix variants with proper URL structure
-
-The content maintains the same professional tone and technical depth while being specifically tailored to GCP's PII prevention capabilities.

@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Detect analytics data on Azure":
-
-```html
 ---
 title: "Azure Analytics Data Detection"
 description: "Learn how to detect analytics data in Azure environments. Follow step-by-step guidance for PCI-DSS compliance."
@@ -189,16 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the same HTML structure and CSS as your example, with the following key adaptations:
-
-- **Topic**: Focused on detecting analytics data on Azure
-- **Regulation**: PCI-DSS (most relevant for analytics data that might contain payment information)
-- **Risk**: Shadow data (most relevant for analytics data that might be stored in unknown locations)
-- **Platform-specific details**: References Azure services, CLI commands, and integration points
-- **Cyera integration**: Mentions AI and NLP techniques specifically relevant for analytics data detection
-- **References**: Includes real, relevant links from the search results about Azure data classification, security, and PCI-DSS compliance
-- **Next Steps**: Links to the fix and prevent versions using the correct URL format
-
-The content maintains the professional tone and structure while being specifically tailored to Azure analytics data detection scenarios.

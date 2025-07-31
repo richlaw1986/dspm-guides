@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Detect PHI on Databricks":
-
-```html
 ---
 title: "Databricks PHI Detection"
 description: "Learn how to detect PHI (Protected Health Information) in Databricks environments. Follow step-by-step guidance for HIPAA compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

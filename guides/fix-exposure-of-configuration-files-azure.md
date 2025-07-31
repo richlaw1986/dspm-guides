@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Fix exposure of configuration files on Azure":
-
-```html
 ---
 title: "Azure Configuration File Exposure Fix"
 description: "Learn how to fix configuration file exposure in Azure environments. Follow step-by-step guidance for SOC 2 compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

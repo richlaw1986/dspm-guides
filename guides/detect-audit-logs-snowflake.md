@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Detect audit logs on Snowflake":
-
-```html
 ---
 title: "Snowflake Audit Log Detection"
 description: "Learn how to detect and monitor audit logs in Snowflake environments. Follow step-by-step guidance for SOC 2 compliance."
@@ -189,17 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and CSS from your example while adapting the content for detecting audit logs on Snowflake. Key adaptations include:
-
-- **Platform**: Changed to Snowflake with appropriate technical details
-- **Data Type**: Focused on audit logs and monitoring activities
-- **Action**: Detection-focused with monitoring and alerting
-- **Regulation**: SOC 2 as most relevant for audit log requirements
-- **Risk**: Unauthorized access as the primary concern
-- **Cyera Integration**: Highlighted AI and NLP capabilities for audit log pattern analysis
-- **References**: Added relevant Snowflake security and SOC 2 compliance links
-- **Next Steps**: Linked to prevent and fix versions for audit logs on Snowflake
-
-The content maintains the same professional tone and structure while being specifically tailored to Snowflake audit log detection scenarios.

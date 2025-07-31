@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Prevent exposure of audit logs on AWS":
-
-```html
 ---
 title: "AWS Audit Logs Exposure Prevention"
 description: "Learn how to prevent exposure of audit logs in AWS environments. Follow step-by-step guidance for FedRAMP compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

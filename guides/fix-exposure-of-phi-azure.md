@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Fix exposure of PHI on Azure":
-
-```html
 ---
 title: "Azure PHI Exposure Remediation"
 description: "Learn how to fix PHI exposures in Azure environments. Follow step-by-step guidance for HIPAA compliance and healthcare data security."
@@ -193,4 +190,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for "Fix exposure of PCI data on Azure":
-
-```html
 ---
 title: "Azure PCI Data Exposure Remediation"
 description: "Learn how to fix PCI data exposure in Azure environments. Follow step-by-step guidance for PCI-DSS compliance and secure cardholder data."
@@ -189,16 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and CSS classes from your example while adapting the content for "Fix exposure of PCI data on Azure". Key adaptations include:
-
-- **Metadata**: Updated title, description, meta_title, platform (azure), risk (data exposure), and regulation (PCI-DSS)
-- **Cyera Integration**: Positioned as an AI-powered DSPM platform using NLP and NER for PCI data identification and remediation
-- **Content Focus**: Shifted from detection to remediation/fixing exposures
-- **Azure-specific**: References Azure Security Center, Key Vault, Storage encryption, etc.
-- **PCI-DSS Compliance**: Emphasizes cardholder data protection and compliance requirements
-- **References**: Added real, relevant Azure and PCI-DSS documentation links from the search results
-- **Next Steps**: Links to prevent and detect versions with proper URL format
-
-The page maintains the same visual structure while being specifically tailored to the Azure platform and PCI data remediation use case.

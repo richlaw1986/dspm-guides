@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Fix exposure of analytics data on Databricks":
-
-```html
 ---
 title: "Databricks Analytics Data Exposure Remediation"
 description: "Learn how to fix exposure of analytics data in Databricks environments. Follow step-by-step guidance for GDPR compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

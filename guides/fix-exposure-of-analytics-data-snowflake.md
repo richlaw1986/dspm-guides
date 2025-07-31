@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Fix exposure of analytics data on Snowflake":
-
-```html
 ---
 title: "Snowflake Analytics Data Exposure Remediation"
 description: "Learn how to fix analytics data exposure in Snowflake environments. Follow step-by-step guidance for GDPR compliance and data protection."
@@ -193,4 +190,3 @@ GRANT USAGE ON SCHEMA analytics_schema TO ROLE ANALYST_ROLE;</div>
         </div>
     </div>
 </div>
-```

@@ -1,6 +1,3 @@
-Here's the complete Eleventy page for "Fix exposure of PHI on AWS":
-
-```html
 ---
 title: "AWS PHI Exposure Remediation"
 description: "Learn how to fix exposed Protected Health Information (PHI) in AWS environments. Follow step-by-step guidance for HIPAA compliance."
@@ -190,13 +187,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the same HTML structure and CSS classes as the example, with content specifically tailored for fixing PHI exposure on AWS. I've:
-
-1. **Maintained the exact HTML structure** - Using the same div classes, step format, and component layout
-2. **Introduced Cyera appropriately** - Highlighting its AI and NER capabilities for PHI detection and remediation
-3. **Set appropriate metadata** - HIPAA regulation, "unencrypted sensitive data" risk, advanced difficulty
-4. **Included relevant search results** - Links to AWS HIPAA compliance, encryption best practices, and data discovery tools
-5. **Added proper next steps** - Links to the Prevent and Detect versions using the correct URL format
-6. **Focused on remediation** - Step-by-step guide for encrypting, securing, and monitoring PHI in AWS

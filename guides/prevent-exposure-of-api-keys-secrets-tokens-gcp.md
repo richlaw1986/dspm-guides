@@ -1,6 +1,3 @@
-Now I'll create the complete Eleventy page for preventing exposure of API keys/secrets/tokens on GCP:
-
-```html
 ---
 title: "GCP API Keys Prevention"
 description: "Learn how to prevent exposure of API keys, secrets, and tokens in Google Cloud Platform environments. Follow step-by-step guidance for SOC 2 compliance."
@@ -189,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
