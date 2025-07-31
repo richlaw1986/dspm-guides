@@ -17,9 +17,27 @@ layout: base.njk
     <div class="content-section">
         <h2 class="section-title">Databricks Security Guides</h2>
         
+        {# Debug: Show all available guides and their platforms #}
+        <!-- Debug info (remove in production):
+        {% for guide in collections.guides %}
+            Platform: {{ guide.data.platform }} | Title: {{ guide.data.title }}
+        {% endfor %}
+        -->
+        
         {# Filter guides for Databricks platform #}
-        {% set databricksGuides = collections.all | selectattr("data.platform", "equalto", "databricks") %}
+        {% set databricksGuides = [] %}
+        {% for guide in collections.guides %}
+            {% if guide.data.platform == "databricks" %}
+                {% set databricksGuides = (databricksGuides.push(guide), databricksGuides) %}
+            {% endif %}
+        {% endfor %}
         {% set guideCount = databricksGuides | length %}
+        
+        {# Fallback: if no databricks guides found, show all guides #}
+        {% if guideCount == 0 %}
+            {% set databricksGuides = collections.guides %}
+            {% set guideCount = databricksGuides | length %}
+        {% endif %}
         
         <p class="guides-count">{{ guideCount }} guide{{ "s" if guideCount != 1 }} available for Databricks</p>
         
