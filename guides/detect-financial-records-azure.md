@@ -186,18 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure and CSS as your example, with the following key adaptations:
-
-- **Title & Meta**: Focused on detecting financial records in Azure with AI mention
-- **Regulation**: PCI-DSS (most relevant for financial records)
-- **Risk**: Data exposure (most relevant primary risk)
-- **Platform**: Azure-specific configurations and tools
-- **Cyera Integration**: Highlights AI/ML capabilities including NER for financial data detection
-- **Prerequisites**: Azure-specific permissions and tools
-- **Steps**: Tailored to Azure environment setup and configuration
-- **References**: Real links found through search related to Azure compliance and financial data detection
-- **Next Steps**: Links to prevent and fix versions using the correct URL format
-
-The content maintains the same professional tone and structure while being specifically relevant to detecting financial records in Azure environments.

@@ -186,16 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact HTML structure and styling from your example while adapting the content for detecting API keys, secrets, and tokens on Databricks. Key changes include:
-
-1. **Title and Meta**: Focused on API keys/secrets detection with AI mention in meta title
-2. **Risk**: Changed to "insecure APIs" as most relevant for credential exposure
-3. **Regulation**: SOC 2 as most relevant for secrets management and API security
-4. **Cyera Introduction**: Emphasized AI-powered pattern recognition and Named Entity Recognition (NER) for credential detection
-5. **Content**: Adapted all sections to focus on secrets scanning rather than employee data
-6. **References**: Updated with actual Databricks security documentation links found through search
-7. **Next Steps**: Links to related Fix and Prevent pages using the correct URL format
-
-The page maintains the same professional structure while providing comprehensive guidance for detecting exposed credentials in Databricks environments.

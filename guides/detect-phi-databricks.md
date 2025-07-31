@@ -186,4 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```

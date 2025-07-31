@@ -188,16 +188,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML/CSS structure as your example, but is specifically tailored for "Fix exposure of passwords on Azure" with:
-
-- **Relevant metadata**: PCI-DSS regulation (most relevant for password security), data exposure risk, intermediate difficulty
-- **Cyera integration**: Highlighted how Cyera uses AI and NLP to identify exposed passwords in various Azure resources
-- **Step-by-step remediation**: Focused on immediate response, credential rotation, system updates, and validation
-- **Azure-specific commands**: Using Azure CLI for password resets and Key Vault operations
-- **Real Microsoft documentation links**: Added actual Microsoft Learn articles about Azure security and Key Vault best practices
-- **Related navigation**: Links to prevent and detect versions with proper URL structure
-- **Architecture components**: Azure AD, Key Vault, Cyera Scanner, and Application Services
-
-The content emphasizes the urgency of password exposure remediation while providing practical, actionable steps for Azure environments.

@@ -186,17 +186,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure and CSS as your example, while adapting the content for "Fix exposure of employee data on GCP". Key adaptations include:
-
-- **Action**: Changed from "Detect" to "Fix" throughout
-- **Platform**: Changed from "Databricks" to "GCP" 
-- **Regulation**: Selected GDPR as most relevant for employee data
-- **Risk**: Set to "data exposure" as most appropriate
-- **Cyera Integration**: Highlighted AI capabilities with NER for employee data identification
-- **GCP-specific content**: References Security Command Center, Cloud DLP, IAM policies, and GCP-specific tools
-- **References**: Included actual GCP documentation links found through search
-- **Next Steps**: Links to prevent and detect versions with proper URL format
-
-The page maintains the professional tone and structure while being specifically tailored to GCP employee data exposure remediation.

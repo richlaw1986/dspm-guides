@@ -188,14 +188,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the same HTML/CSS structure as your example while focusing on the "Fix exposure of employee data on Databricks" topic. Key adaptations include:
-
-1. **Metadata**: Updated title, description, meta title (mentions AI), tags, and set regulation to "ISO 27001" and risk to "data exposure"
-2. **Cyera Integration**: Introduced Cyera as a DSPM platform that uses AI and NER for detecting and fixing employee data exposures
-3. **Content Focus**: Shifted from detection to remediation workflows, including access restrictions, data masking, and continuous monitoring
-4. **References**: Added relevant Databricks security documentation and ISO 27001 compliance resources
-5. **Next Steps**: Linked to the complementary "Prevent" and "Detect" versions using the correct URL format
-
-The page maintains the professional tone and technical depth while providing actionable guidance for fixing employee data exposures in Databricks environments.

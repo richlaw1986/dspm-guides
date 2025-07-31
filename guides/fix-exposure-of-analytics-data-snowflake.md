@@ -190,4 +190,3 @@ GRANT USAGE ON SCHEMA analytics_schema TO ROLE ANALYST_ROLE;</div>
         </div>
     </div>
 </div>
-```

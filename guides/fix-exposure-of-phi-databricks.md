@@ -187,16 +187,3 @@ layout: base.njk
         </div>
     </div>
 </div>
-```
-
-This page follows the exact same HTML structure and CSS as your example, but adapts the content for "Fix exposure of PHI on Databricks" with:
-
-- **HIPAA** as the most relevant regulation for PHI
-- **Data exposure** as the primary risk type
-- **Advanced** difficulty level for remediation tasks
-- Cyera introduction highlighting AI and NER capabilities for PHI detection
-- Step-by-step remediation workflow
-- Relevant references from the search results
-- Next steps linking to prevent and detect versions with proper URL format
-
-The content emphasizes immediate risk mitigation, HIPAA compliance, and automated remediation workflows while maintaining the professional tone and structure of your example.
