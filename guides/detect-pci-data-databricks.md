@@ -1,11 +1,14 @@
+Based on my search, here's the complete Eleventy page for "Detect PCI data on Databricks":
+
 ---
-title: "Databricks Employee Data Detection"
-description: "Learn how to detect employee data in Databricks environments. Follow step-by-step guidance for ISO 27001 compliance."
+title: "Databricks PCI Data Detection"
+description: "Learn how to detect PCI data in Databricks environments. Follow step-by-step guidance for PCI-DSS compliance."
+meta_title: "Detect PCI Data in Databricks with AI | DSPM Guide"
 tags: ["guides"]
 difficulty: "intermediate"
 platform: "databricks"
-risk: "Critical Security"
-regulation: "ISO 27001"
+risk: "data exposure"
+regulation: "PCI-DSS"
 status: "published"
 order: 1
 layout: base.njk
@@ -15,23 +18,23 @@ layout: base.njk
     <div class="header">
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
-        <div class="badge">Critical Security</div>
-        <div class="badge regulation">ISO 27001</div>
+        <div class="badge">Data Exposure</div>
+        <div class="badge regulation">PCI-DSS</div>
     </div>
 
     <div class="content-section intro-section">
         <h2 class="section-title">Why It Matters</h2>
-        <p>The core goal is to identify every location where employee information is stored within your Databricks environment, so you can remediate unintended exposures before they become breaches. Scanning for employee data in Databricks is a priority for organizations subject to ISO 27001, as it helps you prove you've discovered and accounted for all sensitive HR assets—mitigating the risk of unrestricted public access.</p>
+        <p>The core goal is to identify every location where payment card industry (PCI) data is stored within your Databricks environment, so you can remediate unintended exposures before they become breaches. Scanning for PCI data in Databricks is a priority for organizations subject to PCI-DSS requirements, as it helps you prove you've discovered and accounted for all sensitive payment data—mitigating the risk of exposure and potential fines up to $100,000 per month.</p>
         
         <div class="risk-highlight">
-            <strong>Primary Risk:</strong> Unrestricted public access to employee data
+            <strong>Primary Risk:</strong> Data exposure of payment card information
         </div>
         
         <div class="regulation-highlight">
-            <strong>Relevant Regulation:</strong> ISO 27001 Information Security Standard
+            <strong>Relevant Regulation:</strong> PCI Data Security Standard (PCI-DSS)
         </div>
         
-        <p>A thorough scan delivers immediate visibility, laying the foundation for automated policy enforcement and ongoing compliance.</p>
+        <p>A thorough scan delivers immediate visibility into cardholder data environments (CDE), laying the foundation for automated policy enforcement and ongoing compliance with PCI-DSS requirements 3.1 and 3.2.</p>
     </div>
 
     <div class="content-section">
@@ -67,7 +70,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By automating the discovery of employee data in Databricks, Cyera ensures you stay ahead of accidental exposures and meet ISO 27001 audit requirements in real time.</p>
+        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI and machine learning models including Named Entity Recognition (NER) and pattern matching algorithms, Cyera automatically identifies PCI data such as credit card numbers, CVV codes, and payment processor tokens in your Databricks environment. This ensures you stay ahead of accidental exposures and meet PCI-DSS audit requirements in real time.</p>
     </div>
 	
 
@@ -77,26 +80,26 @@ layout: base.njk
         <div class="step">
             <div class="step-number">1</div>
             <div class="step-title">Configure your Databricks workspace</div>
-            <p>Ensure Unity Catalog is enabled in your account and create a service principal with the minimum required privileges.</p>
+            <p>Ensure Unity Catalog is enabled in your account and create a service principal with the minimum required privileges. Enable PCI-DSS compliance profile if processing regulated payment data.</p>
             <div class="code-block">databricks configure --token</div>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
             <div class="step-title">Enable scanning workflows</div>
-            <p>In the Cyera portal, navigate to Integrations → DSPM → Add new. Select Databricks, provide your host URL and service principal details, then define the scan scope.</p>
+            <p>In the Cyera portal, navigate to Integrations → DSPM → Add new. Select Databricks, provide your host URL and service principal details, then define the scan scope. Configure PCI-specific detection rules including credit card numbers, expiration dates, and CVV patterns.</p>
         </div>
 
         <div class="step">
             <div class="step-number">3</div>
             <div class="step-title">Integrate with third-party tools</div>
-            <p>Configure webhooks or streaming exports to push scan results into your SIEM or Security Hub. Link findings to existing ticketing systems like Jira or ServiceNow.</p>
+            <p>Configure webhooks or streaming exports to push scan results into your SIEM or Security Hub. Link findings to existing ticketing systems like Jira or ServiceNow. Set up alerts for high-confidence PCI data discoveries.</p>
         </div>
 
         <div class="step">
             <div class="step-number">4</div>
             <div class="step-title">Validate results and tune policies</div>
-            <p>Review the initial detection report, prioritize tables with large volumes of employee PII, and adjust detection rules to reduce false positives. Schedule recurring scans to maintain visibility.</p>
+            <p>Review the initial detection report, prioritize tables with large volumes of payment card data, and adjust detection rules to reduce false positives. Schedule recurring scans to maintain visibility and ensure continuous compliance with PCI-DSS requirements.</p>
         </div>
     </div>
 
@@ -115,11 +118,11 @@ layout: base.njk
             </div>
             <div class="component-card">
                 <h4>Cyera Back-end</h4>
-                <p>Applies detection models and risk scoring</p>
+                <p>Applies PCI detection models and risk scoring</p>
             </div>
             <div class="component-card">
                 <h4>Reporting & Remediation</h4>
-                <p>Dashboards, alerts, and playbooks</p>
+                <p>Dashboards, alerts, and compliance playbooks</p>
             </div>
         </div>
 
@@ -130,7 +133,7 @@ layout: base.njk
                 <span class="flow-arrow">→</span>
                 <span class="flow-step">Send to Cyera</span>
                 <span class="flow-arrow">→</span>
-                <span class="flow-step">Apply Detection</span>
+                <span class="flow-step">Apply PCI Detection</span>
                 <span class="flow-arrow">→</span>
                 <span class="flow-step">Route Findings</span>
             </div>
@@ -144,24 +147,24 @@ layout: base.njk
 	                <h4>Performance Considerations</h4>
 	                <ul>
 	                    <li>Start with incremental or scoped scans</li>
-	                    <li>Use sampling for very large tables</li>
+	                    <li>Use sampling for very large transaction tables</li>
 	                    <li>Tune sample rates for speed vs coverage</li>
 	                </ul>
 	            </div>
 	            <div class="practice-card">
 	                <h4>Tuning Detection Rules</h4>
 	                <ul>
-	                    <li>Maintain allowlists for synthetic datasets</li>
-	                    <li>Adjust confidence thresholds</li>
-	                    <li>Match rules to your risk tolerance</li>
+	                    <li>Maintain allowlists for test credit card numbers</li>
+	                    <li>Adjust confidence thresholds for Luhn algorithm validation</li>
+	                    <li>Match rules to your PCI scope boundaries</li>
 	                </ul>
 	            </div>
 	            <div class="practice-card warning-card">
 	                <h4>Common Pitfalls</h4>
 	                <ul>
-	                    <li>Forgetting Delta Lake tables outside Unity Catalog</li>
-	                    <li>Over-scanning temporary or test schemas</li>
-	                    <li>Neglecting to rotate service-principal credentials</li>
+	                    <li>Forgetting historical payment data in archived tables</li>
+	                    <li>Over-scanning development environments with synthetic data</li>
+	                    <li>Neglecting to validate PCI-DSS compliance profile settings</li>
 	                </ul>
 	            </div>
 	        </div>
@@ -170,17 +173,18 @@ layout: base.njk
     <div class="content-section references-section">
         <h2 class="section-title">References & Further Reading</h2>
         <ul>
-            <li><a href="#">Databricks Unity Catalog overview</a></li>
-            <li><a href="#">ISO 27001 Information security standard</a></li>
-            <li><a href="#">Cyera DSPM</a></li>
+            <li><a href="https://docs.databricks.com/aws/en/security/privacy/pci">Databricks PCI DSS v4.0 Documentation</a></li>
+            <li><a href="https://www.databricks.com/trust/compliance/pci-dss">Databricks PCI DSS Compliance</a></li>
+            <li><a href="https://docs.databricks.com/aws/en/lakehouse-monitoring/data-classification">Data Classification in Unity Catalog</a></li>
+            <li><a href="https://www.cyera.com/blog/advancing-sensitive-data-classification-in-the-age-of-ai">AI-Driven Sensitive Data Classification</a></li>
         </ul>
     </div>
 
     <div class="content-section next-steps">
         <h2 class="section-title">Next Steps</h2>
         <div style="margin-top: 20px;">
-            <a href="#" class="action-button">🔧 Fix: Review and remediate publicly exposed tables</a>
-            <a href="#" class="action-button">📊 Audit: Deep-dive into data classifications</a>
+            <a href="/guides/prevent-exposure-of-pci-data-databricks" class="action-button">🛡️ Prevent: Implement PCI data protection controls</a>
+            <a href="/guides/fix-exposure-of-pci-data-databricks" class="action-button">🔧 Fix: Remediate exposed PCI data</a>
         </div>
     </div>
 </div>

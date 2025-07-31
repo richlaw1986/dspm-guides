@@ -1,0 +1,190 @@
+Now I'll create the Eleventy page for "Detect PII on AWS":
+
+---
+title: "AWS PII Detection"
+description: "Learn how to detect personally identifiable information (PII) in AWS environments. Follow step-by-step guidance for GDPR compliance."
+meta_title: "Detect PII in AWS with AI | DSPM Guide"
+tags: ["guides"]
+difficulty: "intermediate"
+platform: "aws"
+risk: "data exposure"
+regulation: "GDPR"
+status: "published"
+order: 1
+layout: base.njk
+---
+
+<div class="container">
+    <div class="header">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+        <div class="badge">Data Exposure</div>
+        <div class="badge regulation">GDPR</div>
+    </div>
+
+    <div class="content-section intro-section">
+        <h2 class="section-title">Why It Matters</h2>
+        <p>The core goal is to identify every location where personally identifiable information is stored within your AWS environment, so you can remediate unintended exposures before they become breaches. Scanning for PII in AWS is a priority for organizations subject to GDPR, as it helps you prove you've discovered and accounted for all sensitive personal data—mitigating the risk of data exposure and unauthorized access.</p>
+        
+        <div class="risk-highlight">
+            <strong>Primary Risk:</strong> Data exposure of personal information
+        </div>
+        
+        <div class="regulation-highlight">
+            <strong>Relevant Regulation:</strong> GDPR General Data Protection Regulation
+        </div>
+        
+        <p>A thorough scan delivers immediate visibility across S3 buckets, RDS databases, and other AWS services, laying the foundation for automated policy enforcement and ongoing compliance.</p>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Prerequisites</h2>
+        <div class="prerequisites-grid">
+            <div class="prereq-card">
+                <h4>Permissions & Roles</h4>
+                <ul>
+                    <li>AWS IAM admin or sufficient privileges</li>
+                    <li>S3:GetObject, S3:ListBucket permissions</li>
+                    <li>Macie service-linked role access</li>
+                </ul>
+            </div>
+            <div class="prereq-card">
+                <h4>External Tools</h4>
+                <ul>
+                    <li>AWS CLI</li>
+                    <li>Cyera DSPM account</li>
+                    <li>API credentials</li>
+                </ul>
+            </div>
+            <div class="prereq-card">
+                <h4>Prior Setup</h4>
+                <ul>
+                    <li>AWS account with active resources</li>
+                    <li>S3 buckets containing data</li>
+                    <li>IAM roles configured</li>
+                    <li>Network access configured</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+    <div class="cyera-highlight">
+        <h3>Introducing Cyera</h3>
+        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera automatically identifies PII patterns in your AWS environment, ensuring you stay ahead of data exposure risks and meet GDPR audit requirements in real time.</p>
+    </div>
+	
+
+    <div class="content-section">
+        <h2 class="section-title">Step-by-Step Guide</h2>
+        
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">Configure your AWS environment</div>
+            <p>Ensure proper IAM roles are in place and enable Amazon Macie in your target regions. Create a service account with the minimum required privileges for data discovery.</p>
+            <div class="code-block">aws configure --profile cyera-scanner</div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Enable scanning workflows</div>
+            <p>In the Cyera portal, navigate to Integrations → DSPM → Add new. Select AWS, provide your account ID and IAM role details, then define the scan scope across S3, RDS, and other services.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Integrate with third-party tools</div>
+            <p>Configure webhooks or streaming exports to push scan results into your SIEM or AWS Security Hub. Link findings to existing ticketing systems like Jira or ServiceNow for remediation workflows.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-title">Validate results and tune policies</div>
+            <p>Review the initial detection report, prioritize resources with large volumes of PII, and adjust detection rules to reduce false positives. Schedule recurring scans to maintain continuous visibility.</p>
+        </div>
+    </div>
+
+
+    <div class="content-section architecture-section">
+        <h2 class="section-title">Architecture & Workflow</h2>
+        
+        <div class="component-grid">
+            <div class="component-card">
+                <h4>AWS Services</h4>
+                <p>S3, RDS, DynamoDB, and other data stores</p>
+            </div>
+            <div class="component-card">
+                <h4>Cyera Connector</h4>
+                <p>Pulls metadata and samples data for classification</p>
+            </div>
+            <div class="component-card">
+                <h4>AI Classification Engine</h4>
+                <p>Applies NER models and PII detection algorithms</p>
+            </div>
+            <div class="component-card">
+                <h4>Reporting & Remediation</h4>
+                <p>Dashboards, alerts, and playbooks</p>
+            </div>
+        </div>
+
+        <div class="flow-diagram">
+            <h4>Data Flow Summary</h4>
+            <div style="margin: 20px 0;">
+                <span class="flow-step">Enumerate Resources</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Send to Cyera</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Apply AI Detection</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Route Findings</span>
+            </div>
+        </div>
+    </div>
+
+	<div class="content-section">
+	        <h2 class="section-title">Best Practices & Tips</h2>
+	        <div class="best-practices-grid">
+	            <div class="practice-card">
+	                <h4>Performance Considerations</h4>
+	                <ul>
+	                    <li>Start with high-priority S3 buckets</li>
+	                    <li>Use sampling for very large datasets</li>
+	                    <li>Configure scanning schedules during off-peak hours</li>
+	                </ul>
+	            </div>
+	            <div class="practice-card">
+	                <h4>Tuning Detection Rules</h4>
+	                <ul>
+	                    <li>Maintain allowlists for test environments</li>
+	                    <li>Adjust confidence thresholds for PII types</li>
+	                    <li>Configure custom patterns for organization-specific data</li>
+	                </ul>
+	            </div>
+	            <div class="practice-card warning-card">
+	                <h4>Common Pitfalls</h4>
+	                <ul>
+	                    <li>Forgetting cross-region S3 buckets</li>
+	                    <li>Over-scanning temporary or backup data</li>
+	                    <li>Neglecting to rotate scanner credentials</li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+
+    <div class="content-section references-section">
+        <h2 class="section-title">References & Further Reading</h2>
+        <ul>
+            <li><a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-pii.html">Detecting PII entities - Amazon Comprehend</a></li>
+            <li><a href="https://docs.aws.amazon.com/macie/latest/user/mdis-reference-pii.html">Managed data identifiers for PII - Amazon Macie</a></li>
+            <li><a href="https://aws.amazon.com/compliance/gdpr-center/">GDPR - Amazon Web Services</a></li>
+            <li><a href="https://docs.aws.amazon.com/macie/latest/user/data-classification.html">Discovering sensitive data with Macie</a></li>
+        </ul>
+    </div>
+
+    <div class="content-section next-steps">
+        <h2 class="section-title">Next Steps</h2>
+        <div style="margin-top: 20px;">
+            <a href="/guides/fix-exposure-of-pii-aws" class="action-button">🔧 Fix: Remediate exposed PII in AWS</a>
+            <a href="/guides/prevent-exposure-of-pii-aws" class="action-button">🛡️ Prevent: Stop PII exposure in AWS</a>
+        </div>
+    </div>
+</div>
