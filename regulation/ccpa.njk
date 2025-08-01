@@ -1,0 +1,164 @@
+---
+title: "CCPA Compliance Guides"
+description: "DSPM guides for CCPA compliance and California consumer privacy requirements."
+layout: base.njk
+regulation: "CCPA"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ regulation }} Compliance Guides</h1>
+        <p>Comprehensive DSPM guides for {{ regulation }} compliance and California consumer privacy requirements.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ regulation }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.regulation == regulation and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    {% if guide.data.risk %}
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% endif %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About CCPA</h2>
+        <p>The California Consumer Privacy Act (CCPA) grants California residents specific rights regarding their personal information and imposes corresponding obligations on businesses. The CCPA requires businesses to disclose their data collection practices and provide consumers with rights to know, delete, and opt-out of the sale of their personal information. These guides help you implement the technical and organizational measures required for CCPA compliance.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Consumer Rights</h4>
+                <ul>
+                    <li>Right to know about personal information collection</li>
+                    <li>Right to delete personal information</li>
+                    <li>Right to opt-out of sale of personal information</li>
+                    <li>Right to non-discrimination for exercising privacy rights</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Inventory & Mapping</h4>
+                <ul>
+                    <li>Personal information category identification</li>
+                    <li>Data source and collection point mapping</li>
+                    <li>Third-party data sharing documentation</li>
+                    <li>Data retention and deletion procedures</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Privacy Infrastructure</h4>
+                <ul>
+                    <li>Consumer request processing systems</li>
+                    <li>Identity verification procedures</li>
+                    <li>Data subject rights fulfillment processes</li>
+                    <li>Privacy policy updates and disclosures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/risk/data-exposure/" class="action-button">🎯 Browse by Risk Type</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'CCPA' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

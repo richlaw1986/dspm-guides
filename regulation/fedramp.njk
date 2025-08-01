@@ -1,0 +1,164 @@
+---
+title: "FedRAMP Compliance Guides"
+description: "DSPM guides for FedRAMP compliance and federal cloud security requirements."
+layout: base.njk
+regulation: "FedRAMP"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ regulation }} Compliance Guides</h1>
+        <p>Comprehensive DSPM guides for {{ regulation }} compliance and federal cloud security requirements.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ regulation }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.regulation == regulation and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    {% if guide.data.risk %}
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% endif %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About FedRAMP</h2>
+        <p>The Federal Risk and Authorization Management Program (FedRAMP) is a government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. FedRAMP enables federal agencies to rapidly adopt secure cloud technologies while ensuring consistent security standards across government cloud deployments. These guides help you implement the security controls required for FedRAMP compliance.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Security Control Implementation</h4>
+                <ul>
+                    <li>NIST 800-53 security control implementation</li>
+                    <li>Risk assessment and security categorization</li>
+                    <li>System security plan development</li>
+                    <li>Control inheritance and responsibility matrix</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Continuous Monitoring</h4>
+                <ul>
+                    <li>Automated security assessment tools</li>
+                    <li>Vulnerability scanning and remediation</li>
+                    <li>Security control monitoring procedures</li>
+                    <li>Plan of Action and Milestones (POA&M)</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Authorization & Documentation</h4>
+                <ul>
+                    <li>Security assessment and authorization</li>
+                    <li>Authority to Operate (ATO) maintenance</li>
+                    <li>Incident response and reporting procedures</li>
+                    <li>Supply chain risk management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/risk/data-exposure/" class="action-button">🎯 Browse by Risk Type</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'FedRAMP' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>
