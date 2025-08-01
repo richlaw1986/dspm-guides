@@ -1,0 +1,262 @@
+---
+title: "GCP DSPM Guides"
+description: "Comprehensive data security guides for Google Cloud Platform environments"
+layout: base.njk
+---
+
+<div class="container">
+    
+    <!-- Platform Hero Section -->
+    <div class="platform-hero">
+        <div class="platform-logo">GCP</div>
+        <h1>Google Cloud Platform Data Security</h1>
+        <p>Comprehensive guides for securing your GCP environment, detecting sensitive data, and maintaining compliance across your cloud infrastructure and data services.</p>
+    </div>
+	
+    <!-- Available Guides -->
+    <div class="content-section">
+        <h2 class="section-title">GCP Security Guides</h2>
+        
+        {# Debug: Show all available guides and their platforms #}
+        <!-- Debug info (remove in production):
+        {% for guide in collections.guides %}
+            Platform: {{ guide.data.platform }} | Title: {{ guide.data.title }}
+        {% endfor %}
+        -->
+        
+        {# Filter guides for GCP platform #}
+        {% set gcpGuides = [] %}
+        {% for guide in collections.guides %}
+            {% if guide.data.platform == "gcp" %}
+                {% set gcpGuides = (gcpGuides.push(guide), gcpGuides) %}
+            {% endif %}
+        {% endfor %}
+        {% set guideCount = gcpGuides | length %}
+        
+        {# Fallback: if no gcp guides found, show all guides #}
+        {% if guideCount == 0 %}
+            {% set gcpGuides = collections.guides %}
+            {% set guideCount = gcpGuides | length %}
+        {% endif %}
+        
+        <p class="guides-count">{{ guideCount }} guide{{ "s" if guideCount != 1 }} available for GCP</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {# Loop through GCP guides #}
+            {% for guide in gcpGuides %}
+                {% if guide.data.status != "coming-soon" %}
+                <div class="component-card" data-category="{{ guide.data.category | default('general') }}">
+                    <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                    <p>{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        {% if guide.data.risk %}
+                            <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                        {% endif %}
+                        {% if guide.data.regulation %}
+                            <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                        {% endif %}
+                        {% if guide.data.tags %}
+                            {% for tag in guide.data.tags %}
+                                <span class="guide-tag">{{ tag }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+            {# Coming soon guides #}
+            {% for guide in gcpGuides %}
+                {% if guide.data.status == "coming-soon" %}
+                <div class="component-card coming-soon-card">
+                    <h4 class="coming-soon-title">{{ guide.data.title }}</h4>
+                    <p class="coming-soon-text">{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        <span class="guide-tag coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- What is GCP -->
+    <div class="content-section">
+        <h2 class="section-title">What is Google Cloud Platform?</h2>
+        <p>Google Cloud Platform (GCP) is a comprehensive suite of cloud computing services that provides infrastructure, platform, and software services. It offers scalable data storage, advanced analytics, machine learning capabilities, and enterprise-grade security across a global network.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Data & Analytics</h4>
+                <ul>
+                    <li>BigQuery for large-scale data warehousing</li>
+                    <li>Cloud Storage for object storage</li>
+                    <li>Dataflow for stream and batch processing</li>
+                    <li>Cloud SQL and Firestore for databases</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>AI & Machine Learning</h4>
+                <ul>
+                    <li>Vertex AI for ML model development</li>
+                    <li>AutoML for automated model training</li>
+                    <li>Pre-trained APIs for vision, speech, and language</li>
+                    <li>TensorFlow integration and support</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Enterprise Security</h4>
+                <ul>
+                    <li>Identity and Access Management (IAM)</li>
+                    <li>Cloud Security Command Center</li>
+                    <li>Data Loss Prevention (DLP) API</li>
+                    <li>Encryption at rest and in transit</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Security Concerns -->
+    <div class="content-section">
+        <h2 class="section-title">Data Security Concerns</h2>
+        <p>GCP environments present unique security challenges due to their distributed nature, multiple service integrations, and varying data storage patterns. Understanding these risks is essential for maintaining robust data protection.</p>
+        
+        <div class="concerns-grid">
+            <div class="concern-card">
+                <h4>Overprivileged Access</h4>
+                <p>Complex IAM configurations can lead to excessive permissions across GCP services.</p>
+                <ul>
+                    <li>Broad BigQuery dataset access</li>
+                    <li>Service account privilege escalation</li>
+                    <li>Cross-project resource sharing</li>
+                    <li>Legacy permissions not reviewed</li>
+                </ul>
+            </div>
+            
+            <div class="concern-card">
+                <h4>Sensitive Data Sprawl</h4>
+                <p>Data replication across multiple GCP services can lead to uncontrolled sensitive data exposure.</p>
+                <ul>
+                    <li>PII in Cloud Storage buckets</li>
+                    <li>Customer data in BigQuery exports</li>
+                    <li>Logs containing sensitive information</li>
+                    <li>Backup files with unencrypted data</li>
+                </ul>
+            </div>
+            
+            <div class="concern-card">
+                <h4>Configuration Drift</h4>
+                <p>Rapid cloud adoption can result in security misconfigurations and policy gaps.</p>
+                <ul>
+                    <li>Public Cloud Storage buckets</li>
+                    <li>Unencrypted data at rest</li>
+                    <li>Missing audit logging</li>
+                    <li>Inconsistent security policies</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who Are These Guides For -->
+    <div class="content-section">
+        <h2 class="section-title">Who Are These Guides For?</h2>
+        <p class="section-description">These GCP-specific guides are designed for security professionals working with Google Cloud infrastructure and data services.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Cloud Security Engineers</h4>
+                <ul>
+                    <li>Implement security controls across GCP services</li>
+                    <li>Configure Cloud DLP for data protection</li>
+                    <li>Set up Security Command Center monitoring</li>
+                    <li>Manage IAM policies and permissions</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Engineers</h4>
+                <ul>
+                    <li>Secure data pipelines in Dataflow</li>
+                    <li>Implement BigQuery access controls</li>
+                    <li>Configure Cloud Storage encryption</li>
+                    <li>Monitor data access patterns</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Compliance Teams</h4>
+                <ul>
+                    <li>Ensure regulatory compliance in cloud environments</li>
+                    <li>Audit data access across GCP services</li>
+                    <li>Document security and governance processes</li>
+                    <li>Prepare for compliance assessments</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyera Integration -->
+    <div class="cyera-highlight">
+        <h3>Cyera for Google Cloud Platform</h3>
+        <p>Cyera's DSPM platform provides comprehensive coverage for GCP environments, automatically discovering and classifying sensitive data across BigQuery, Cloud Storage, Cloud SQL, and other GCP services. Get real-time visibility into data risks and maintain continuous compliance with automated monitoring and alerting.</p>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="content-section next-steps">
+        <h2 class="section-title">Get Started with GCP Security</h2>
+        <p class="section-description">Begin your GCP security journey with our comprehensive guides and best practices.</p>
+        <div>
+            {% for guide in gcpGuides | slice(0, 2) %}
+                {% if guide.data.status != "coming-soon" %}
+                    <a href="{{ guide.url }}" class="action-button">
+                        {% if guide.data.category == "detection" %}🔍{% elif guide.data.category == "prevention" %}🛡️{% else %}📚{% endif %} 
+                        {{ guide.data.title }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
