@@ -4,15 +4,23 @@ description: "DSPM guides for GDPR compliance and data protection requirements."
 layout: base.njk
 regulation: "GDPR"
 ---
-
 <div class="container">
     <div class="header">
         <h1>{{ regulation }} Compliance Guides</h1>
         <p>Comprehensive DSPM guides for {{ regulation }} compliance and data protection requirements.</p>
     </div>
-
+    
     <div class="content-section">
         <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ regulation }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
         
         <div class="component-grid">
             {% for guide in collections.guides %}
@@ -25,18 +33,53 @@ regulation: "GDPR"
                     <span class="guide-tag risk">{{ guide.data.risk }}</span>
                     {% endif %}
                     <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
                 </div>
             </div>
             {% endif %}
             {% endfor %}
         </div>
     </div>
-
+    
     <div class="content-section">
         <h2 class="section-title">About GDPR</h2>
-        <p>The General Data Protection Regulation (GDPR) is a comprehensive data protection law that governs how organizations collect, process, and store personal data of EU residents. These guides help you implement the technical and organizational measures required for GDPR compliance in your data infrastructure.</p>
+        <p>The General Data Protection Regulation (GDPR) is a comprehensive data protection law that governs how organizations collect, process, and store personal data of EU residents. GDPR establishes strict requirements for data protection by design and by default, with significant penalties for non-compliance. These guides help you implement the technical and organizational measures required for GDPR compliance in your data infrastructure.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Data Subject Rights</h4>
+                <ul>
+                    <li>Right to access and data portability</li>
+                    <li>Right to rectification and erasure</li>
+                    <li>Right to restrict processing</li>
+                    <li>Right to object and automated decision-making</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Protection Principles</h4>
+                <ul>
+                    <li>Lawfulness, fairness, and transparency</li>
+                    <li>Purpose limitation and data minimization</li>
+                    <li>Accuracy and storage limitation</li>
+                    <li>Integrity, confidentiality, and accountability</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Technical & Organizational Measures</h4>
+                <ul>
+                    <li>Data protection by design and by default</li>
+                    <li>Privacy impact assessments (DPIA)</li>
+                    <li>Data breach notification procedures</li>
+                    <li>Records of processing activities</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
+    
     <div class="content-section next-steps">
         <h2 class="section-title">Related Resources</h2>
         <div>
@@ -45,3 +88,77 @@ regulation: "GDPR"
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'GDPR' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>
