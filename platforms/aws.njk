@@ -1,0 +1,299 @@
+---
+title: "AWS DSPM Guides"
+description: "Comprehensive data security guides for Amazon Web Services environments"
+layout: base.njk
+---
+
+<div class="container">
+    
+    <!-- Platform Hero Section -->
+    <div class="platform-hero">
+        <div class="platform-logo">AWS</div>
+        <h1>Amazon Web Services Data Security</h1>
+        <p>Comprehensive guides for securing your AWS environment, detecting sensitive data, and maintaining compliance across your cloud infrastructure and data services.</p>
+    </div>
+	
+    <!-- Available Guides -->
+    <div class="content-section">
+        <h2 class="section-title">AWS Security Guides</h2>
+        
+        {# Debug: Show all available guides and their platforms #}
+        <!-- Debug info (remove in production):
+        {% for guide in collections.guides %}
+            Platform: {{ guide.data.platform }} | Title: {{ guide.data.title }}
+        {% endfor %}
+        -->
+        
+        {# Filter guides for AWS platform #}
+        {% set awsGuides = [] %}
+        {% for guide in collections.guides %}
+            {% if guide.data.platform == "aws" %}
+                {% set awsGuides = (awsGuides.push(guide), awsGuides) %}
+            {% endif %}
+        {% endfor %}
+        {% set guideCount = awsGuides | length %}
+        
+        {# Fallback: if no aws guides found, show all guides #}
+        {% if guideCount == 0 %}
+            {% set awsGuides = collections.guides %}
+            {% set guideCount = awsGuides | length %}
+        {% endif %}
+        
+        <p class="guides-count">{{ guideCount }} guide{{ "s" if guideCount != 1 }} available for AWS</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {# Loop through AWS guides #}
+            {% for guide in awsGuides %}
+                {% if guide.data.status != "coming-soon" %}
+                <div class="component-card" data-category="{{ guide.data.category | default('general') }}">
+                    <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                    <p>{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        {% if guide.data.risk %}
+                            <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                        {% endif %}
+                        {% if guide.data.regulation %}
+                            <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                        {% endif %}
+                        {% if guide.data.tags %}
+                            {% for tag in guide.data.tags %}
+                                <span class="guide-tag">{{ tag }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+            {# Coming soon guides #}
+            {% for guide in awsGuides %}
+                {% if guide.data.status == "coming-soon" %}
+                <div class="component-card coming-soon-card">
+                    <h4 class="coming-soon-title">{{ guide.data.title }}</h4>
+                    <p class="coming-soon-text">{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        <span class="guide-tag coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- What is AWS -->
+    <div class="content-section">
+        <h2 class="section-title">What is Amazon Web Services?</h2>
+        <p>Amazon Web Services (AWS) is the world's most comprehensive cloud platform, offering over 200 fully featured services from data centers globally. AWS provides on-demand computing resources, storage, databases, analytics, machine learning, and security services with pay-as-you-go pricing.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Data & Storage Services</h4>
+                <ul>
+                    <li>Amazon S3 for object storage</li>
+                    <li>Amazon RDS for relational databases</li>
+                    <li>Amazon Redshift for data warehousing</li>
+                    <li>AWS Glue for ETL and data catalog</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Analytics & ML</h4>
+                <ul>
+                    <li>Amazon EMR for big data processing</li>
+                    <li>Amazon SageMaker for machine learning</li>
+                    <li>Amazon Athena for serverless analytics</li>
+                    <li>Amazon QuickSight for business intelligence</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Security & Compliance</h4>
+                <ul>
+                    <li>AWS Identity and Access Management (IAM)</li>
+                    <li>AWS CloudTrail for audit logging</li>
+                    <li>Amazon Macie for data discovery and protection</li>
+                    <li>AWS Config for compliance monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Security Concerns -->
+    <div class="content-section">
+        <h2 class="section-title">Data Security Concerns</h2>
+        <p>AWS environments present unique security challenges due to their vast service ecosystem, complex IAM configurations, and distributed data storage patterns. Understanding these risks is critical for maintaining comprehensive data protection.</p>
+        
+        <div class="concerns-grid">
+            <div class="concern-card">
+                <h4>IAM Complexity & Over-Permissions</h4>
+                <p>Complex IAM policies can lead to excessive permissions and privilege escalation risks.</p>
+                <ul>
+                    <li>Overly broad S3 bucket policies</li>
+                    <li>Cross-service role assumptions</li>
+                    <li>Unused or dormant access keys</li>
+                    <li>Resource-based policy conflicts</li>
+                </ul>
+            </div>
+            
+            <div class="concern-card">
+                <h4>Data Exposure & Misconfigurations</h4>
+                <p>Misconfigured services can lead to unintended data exposure across AWS resources.</p>
+                <ul>
+                    <li>Public S3 buckets with sensitive data</li>
+                    <li>Unencrypted RDS instances</li>
+                    <li>Publicly accessible databases</li>
+                    <li>Insecure API Gateway endpoints</li>
+                </ul>
+            </div>
+            
+            <div class="concern-card">
+                <h4>Multi-Service Data Sprawl</h4>
+                <p>Data replication across numerous AWS services creates visibility and governance challenges.</p>
+                <ul>
+                    <li>PII scattered across multiple services</li>
+                    <li>Unclassified data in CloudWatch logs</li>
+                    <li>Backup data without proper encryption</li>
+                    <li>Cross-region data replication risks</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who Are These Guides For -->
+    <div class="content-section">
+        <h2 class="section-title">Who Are These Guides For?</h2>
+        <p class="section-description">These AWS-specific guides are designed for security professionals working with Amazon's cloud infrastructure and data services.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Cloud Security Engineers</h4>
+                <ul>
+                    <li>Implement AWS security best practices</li>
+                    <li>Configure Amazon Macie for data discovery</li>
+                    <li>Set up CloudTrail and GuardDuty monitoring</li>
+                    <li>Manage IAM policies and access controls</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>DevOps & Infrastructure Teams</h4>
+                <ul>
+                    <li>Secure AWS infrastructure deployments</li>
+                    <li>Implement encryption across AWS services</li>
+                    <li>Configure VPC security and network controls</li>
+                    <li>Monitor resource configurations with Config</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Compliance & Risk Teams</h4>
+                <ul>
+                    <li>Ensure regulatory compliance in AWS</li>
+                    <li>Audit access patterns across AWS services</li>
+                    <li>Document security and governance frameworks</li>
+                    <li>Prepare for compliance assessments and audits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyera Integration -->
+    <div class="cyera-highlight">
+        <h3>Cyera for Amazon Web Services</h3>
+        <p>Cyera's DSPM platform provides comprehensive coverage for AWS environments, automatically discovering and classifying sensitive data across S3, RDS, Redshift, and other AWS services. Get real-time visibility into data risks and maintain continuous compliance with automated monitoring and alerting.</p>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="content-section next-steps">
+        <h2 class="section-title">Get Started with AWS Security</h2>
+        <p class="section-description">Begin your AWS security journey with our comprehensive guides and best practices.</p>
+        <div>
+            {% for guide in awsGuides | slice(0, 2) %}
+                {% if guide.data.status != "coming-soon" %}
+                    <a href="{{ guide.url }}" class="action-button">
+                        {% if guide.data.category == "detection" %}🔍{% elif guide.data.category == "prevention" %}🛡️{% else %}📚{% endif %} 
+                        {{ guide.data.title }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title, h4.coming-soon-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const platform = filterValue === 'all guides' ? 'AWS' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${platform}`;
+        }
+    }
+});
+</script>

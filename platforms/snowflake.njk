@@ -1,0 +1,299 @@
+---
+title: "Snowflake DSPM Guides"
+description: "Comprehensive data security guides for Snowflake environments"
+layout: base.njk
+---
+
+<div class="container">
+    
+    <!-- Platform Hero Section -->
+    <div class="platform-hero">
+        <div class="platform-logo">❄️</div>
+        <h1>Snowflake Data Security</h1>
+        <p>Comprehensive guides for securing your Snowflake environment, detecting sensitive data, and maintaining compliance across your cloud data warehouse.</p>
+    </div>
+	
+    <!-- Available Guides -->
+    <div class="content-section">
+        <h2 class="section-title">Snowflake Security Guides</h2>
+        
+        {# Debug: Show all available guides and their platforms #}
+        <!-- Debug info (remove in production):
+        {% for guide in collections.guides %}
+            Platform: {{ guide.data.platform }} | Title: {{ guide.data.title }}
+        {% endfor %}
+        -->
+        
+        {# Filter guides for Snowflake platform #}
+        {% set snowflakeGuides = [] %}
+        {% for guide in collections.guides %}
+            {% if guide.data.platform == "snowflake" %}
+                {% set snowflakeGuides = (snowflakeGuides.push(guide), snowflakeGuides) %}
+            {% endif %}
+        {% endfor %}
+        {% set guideCount = snowflakeGuides | length %}
+        
+        {# Fallback: if no snowflake guides found, show all guides #}
+        {% if guideCount == 0 %}
+            {% set snowflakeGuides = collections.guides %}
+            {% set guideCount = snowflakeGuides | length %}
+        {% endif %}
+        
+        <p class="guides-count">{{ guideCount }} guide{{ "s" if guideCount != 1 }} available for Snowflake</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {# Loop through Snowflake guides #}
+            {% for guide in snowflakeGuides %}
+                {% if guide.data.status != "coming-soon" %}
+                <div class="component-card" data-category="{{ guide.data.category | default('general') }}">
+                    <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                    <p>{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        {% if guide.data.risk %}
+                            <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                        {% endif %}
+                        {% if guide.data.regulation %}
+                            <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                        {% endif %}
+                        {% if guide.data.tags %}
+                            {% for tag in guide.data.tags %}
+                                <span class="guide-tag">{{ tag }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+            {# Coming soon guides #}
+            {% for guide in snowflakeGuides %}
+                {% if guide.data.status == "coming-soon" %}
+                <div class="component-card coming-soon-card">
+                    <h4 class="coming-soon-title">{{ guide.data.title }}</h4>
+                    <p class="coming-soon-text">{{ guide.data.description }}</p>
+                    <div class="guide-tags-container">
+                        <span class="guide-tag coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- What is Snowflake -->
+    <div class="content-section">
+        <h2 class="section-title">What is Snowflake?</h2>
+        <p>Snowflake is a cloud-native data warehouse platform that separates compute and storage, enabling organizations to scale data workloads independently. Built for the cloud from the ground up, it provides secure data sharing, multi-cloud deployment, and near-unlimited scalability.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Cloud Data Platform</h4>
+                <ul>
+                    <li>Separate compute and storage architecture</li>
+                    <li>Auto-scaling virtual warehouses</li>
+                    <li>Multi-cluster shared data architecture</li>
+                    <li>Cross-cloud and cross-region replication</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Sharing & Collaboration</h4>
+                <ul>
+                    <li>Secure data sharing without data movement</li>
+                    <li>Data marketplace for external datasets</li>
+                    <li>Real-time data collaboration</li>
+                    <li>Partner and customer data ecosystems</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Enterprise Features</h4>
+                <ul>
+                    <li>Role-based access control (RBAC)</li>
+                    <li>End-to-end encryption</li>
+                    <li>Time travel and fail-safe recovery</li>
+                    <li>Comprehensive audit logging</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Security Concerns -->
+    <div class="content-section">
+        <h2 class="section-title">Data Security Concerns</h2>
+        <p>Snowflake environments present unique security challenges due to their multi-tenant nature, extensive data sharing capabilities, and role-based access models. Understanding these risks is essential for maintaining robust data protection.</p>
+        
+        <div class="concerns-grid">
+            <div class="concern-card">
+                <h4>Over-Permissioned Roles</h4>
+                <p>Complex role hierarchies can lead to excessive data access permissions.</p>
+                <ul>
+                    <li>Inherited permissions from multiple roles</li>
+                    <li>Broad database and schema access</li>
+                    <li>Service accounts with admin privileges</li>
+                    <li>Temporary access that becomes permanent</li>
+                </ul>
+            </div>
+            
+            <div class="concern-card">
+                <h4>Data Sharing Risks</h4>
+                <p>Snowflake's data sharing features can inadvertently expose sensitive information.</p>
+                <ul>
+                    <li>Shared datasets containing PII</li>
+                    <li>External data shares without proper governance</li>
+                    <li>Customer data in analytics shares</li>
+                    <li>Unmonitored cross-account data access</li>
+                </ul>
+            </div>
+            
+            <div class="concern-card">
+                <h4>Data Classification Gaps</h4>
+                <p>Rapid data ingestion can outpace classification and governance efforts.</p>
+                <ul>
+                    <li>Untagged sensitive tables and columns</li>
+                    <li>Mixed sensitivity levels in datasets</li>
+                    <li>External data without classification</li>
+                    <li>Historical data lacking proper tags</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who Are These Guides For -->
+    <div class="content-section">
+        <h2 class="section-title">Who Are These Guides For?</h2>
+        <p class="section-description">These Snowflake-specific guides are designed for security professionals working with cloud data warehouses and modern data architectures.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Data Engineers</h4>
+                <ul>
+                    <li>Implement secure data pipelines in Snowflake</li>
+                    <li>Configure proper table and column access</li>
+                    <li>Set up data classification and tagging</li>
+                    <li>Monitor data usage and access patterns</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Security Administrators</h4>
+                <ul>
+                    <li>Design secure role-based access models</li>
+                    <li>Implement data masking and encryption</li>
+                    <li>Configure audit logging and monitoring</li>
+                    <li>Manage data sharing security policies</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Governance Teams</h4>
+                <ul>
+                    <li>Ensure regulatory compliance in data warehouses</li>
+                    <li>Audit data access across accounts and shares</li>
+                    <li>Document data lineage and governance</li>
+                    <li>Prepare for compliance assessments</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyera Integration -->
+    <div class="cyera-highlight">
+        <h3>Cyera for Snowflake</h3>
+        <p>Cyera's DSPM platform provides comprehensive coverage for Snowflake environments, automatically discovering and classifying sensitive data across databases, schemas, and shared datasets. Get real-time visibility into data risks and maintain continuous compliance with automated monitoring and alerting.</p>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="content-section next-steps">
+        <h2 class="section-title">Get Started with Snowflake Security</h2>
+        <p class="section-description">Begin your Snowflake security journey with our comprehensive guides and best practices.</p>
+        <div>
+            {% for guide in snowflakeGuides | slice(0, 2) %}
+                {% if guide.data.status != "coming-soon" %}
+                    <a href="{{ guide.url }}" class="action-button">
+                        {% if guide.data.category == "detection" %}🔍{% elif guide.data.category == "prevention" %}🛡️{% else %}📚{% endif %} 
+                        {{ guide.data.title }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title, h4.coming-soon-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const platform = filterValue === 'all guides' ? 'Snowflake' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${platform}`;
+        }
+    }
+});
+</script>
