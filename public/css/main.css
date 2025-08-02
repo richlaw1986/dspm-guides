@@ -1482,4 +1482,14 @@ body {
     .guide-filters {
         justify-content: center;
     }
+	.best-practices-grid {
+	        grid-template-columns: 1fr;
+	        gap: 16px;
+	        margin: 16px 0;
+	    }
+    
+	    .practice-card {
+	        padding: 20px;
+	    }
+	}
 }
