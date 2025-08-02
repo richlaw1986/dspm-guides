@@ -1246,14 +1246,14 @@ body {
 }
 
 .guide-tag.platform {
-    background-color: #fee2e2; /* Light red background */
-    color: #dc2626; /* Darker red text */
-    border: 1px solid #fecaca; /* Light red border */
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #dc2626;
+    border: 1px solid #ef4444;
 }
-
 .guide-tag.platform:hover {
-    background-color: #fecaca; /* Slightly darker light red on hover */
-    color: #b91c1c; /* Even darker red text on hover */
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    transform: translateY(-1px);
 }
 
 .coming-soon-card {

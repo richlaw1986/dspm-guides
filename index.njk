@@ -39,7 +39,7 @@ layout: base.njk
                             <a href="/regulation/{{ guide.data.regulation | lower | replace(' ', '-') }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
                             {% endif %}
                             {% if guide.data.platform %}
-                            <a href="/platform/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
+                            <a href="/platforms/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
                             {% endif %}
                         {% else %}
                             <span class="guide-tag coming-soon">Coming Soon</span>
@@ -97,11 +97,11 @@ layout: base.njk
             <div class="practice-card">
                 <h4>By Platform</h4>
                 <ul>
-                    <li><a href="/platform/aws/">Amazon Web Services (AWS)</a></li>
-                    <li><a href="/platform/azure/">Microsoft Azure</a></li>
-                    <li><a href="/platform/gcp/">Google Cloud Platform (GCP)</a></li>
-                    <li><a href="/platform/databricks/">Databricks</a></li>
-                    <li><a href="/platform/snowflake/">Snowflake</a></li>
+                    <li><a href="/platforms/aws/">Amazon Web Services (AWS)</a></li>
+                    <li><a href="/platforms/azure/">Microsoft Azure</a></li>
+                    <li><a href="/platforms/gcp/">Google Cloud Platform (GCP)</a></li>
+                    <li><a href="/platforms/databricks/">Databricks</a></li>
+                    <li><a href="/platforms/snowflake/">Snowflake</a></li>
                 </ul>
             </div>
             
