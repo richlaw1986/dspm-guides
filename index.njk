@@ -9,6 +9,15 @@ layout: base.njk
   <div class="content-section">
             <h2 class="section-title">Available Guides</h2>
             <p>Comprehensive guides for detecting and managing sensitive data across major cloud platforms and data warehouses.</p>
+            
+            <p class="guides-count">Loading all guides...</p>
+            
+            <div class="guide-filters">
+                <button class="filter-button active">All Guides</button>
+                <button class="filter-button">Detection</button>
+                <button class="filter-button">Prevention</button>
+                <button class="filter-button">Compliance</button>
+            </div>
         
             <div class="component-grid">
                 {% for guide in collections.guides %}
@@ -28,6 +37,9 @@ layout: base.njk
                             {% endif %}
                             {% if guide.data.regulation %}
                             <a href="/regulation/{{ guide.data.regulation | lower | replace(' ', '-') }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
+                            {% endif %}
+                            {% if guide.data.platform %}
+                            <a href="/platform/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
                             {% endif %}
                         {% else %}
                             <span class="guide-tag coming-soon">Coming Soon</span>
@@ -78,6 +90,46 @@ layout: base.njk
     </div>
     
     <div class="content-section">
+        <h2 class="section-title">Browse by Category</h2>
+        <p class="section-description">Find guides organized by platform, regulation, or security risk type.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>By Platform</h4>
+                <ul>
+                    <li><a href="/platform/aws/">Amazon Web Services (AWS)</a></li>
+                    <li><a href="/platform/azure/">Microsoft Azure</a></li>
+                    <li><a href="/platform/gcp/">Google Cloud Platform (GCP)</a></li>
+                    <li><a href="/platform/databricks/">Databricks</a></li>
+                    <li><a href="/platform/snowflake/">Snowflake</a></li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>By Regulation</h4>
+                <ul>
+                    <li><a href="/regulation/gdpr/">GDPR</a></li>
+                    <li><a href="/regulation/hipaa/">HIPAA</a></li>
+                    <li><a href="/regulation/pci-dss/">PCI-DSS</a></li>
+                    <li><a href="/regulation/soc-2/">SOC 2</a></li>
+                    <li><a href="/regulation/iso-27001/">ISO 27001</a></li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>By Risk Type</h4>
+                <ul>
+                    <li><a href="/risk/data-exposure/">Data Exposure</a></li>
+                    <li><a href="/risk/excessive-permissions/">Excessive Permissions</a></li>
+                    <li><a href="/risk/misconfiguration/">Misconfiguration</a></li>
+                    <li><a href="/risk/insider-threat/">Insider Threat</a></li>
+                    <li><a href="/risk/unauthorized-access/">Unauthorized Access</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
         <h2 class="section-title">Getting Started</h2>
         <div class="best-practices-grid">
             <div class="practice-card">
@@ -120,3 +172,77 @@ layout: base.njk
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title, h4 span.coming-soon-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'all' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available${category !== 'all' ? ' for ' + category : ''}`;
+        }
+    }
+});
+</script>
