@@ -16,7 +16,8 @@ layout: base.njk
     <div class="header">
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
-		<div class="guide-tags-wrapper">
+		<div class="guide-tags-container">
+			<div class="guide-tags-wrapper">
 		    {% if status == 'published' %}
 		        {% if risk %}
 		        <a href="/risk/{{ risk | downcase | replace: ' ', '-' }}/" class="guide-tag risk">{{ risk }}</a>
@@ -30,6 +31,7 @@ layout: base.njk
 		    {% else %}
 		        <span class="guide-tag coming-soon">Coming Soon</span>
 		    {% endif %}
+		</div>
 		</div>
     </div>
 
