@@ -11,26 +11,28 @@ status: "published"
 order: 1
 layout: base.njk
 ---
-
+{% set riskSlug = guide.data.risk | lower | replace(' ', '-') %}
+{% set regulationSlug = guide.data.regulation | lower | replace(' ', '-') %}
+{% set platformSlug = guide.data.platform | lower | replace(' ', '-') %}
 <div class="container">
     <div class="header">
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
-        <div class="guide-tags-container">
-            {% if guide.data.status == 'published' %}
-                    {% if guide.data.risk %}
-                    <a href="/risk/{{ guide.data.risk | lower | replace(' ', '-') }}/" class="guide-tag risk">{{ guide.data.risk }}</a>
-                    {% endif %}
-                    {% if guide.data.regulation %}
-                    <a href="/regulation/{{ guide.data.regulation | lower | replace(' ', '-') }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
-                    {% endif %}
-                    {% if guide.data.platform %}
-                    <a href="/platforms/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
-                    {% endif %}
-                {% else %}
-                    <span class="guide-tag coming-soon">Coming Soon</span>
-                {% endif %}
-        </div>
+		<div class="guide-tags-container">
+		    {% if guide.data.status == 'published' %}
+		        {% if guide.data.risk %}
+		        <a href="/risk/{{ riskSlug }}/" class="guide-tag risk">{{ guide.data.risk }}</a>
+		        {% endif %}
+		        {% if guide.data.regulation %}
+		        <a href="/regulation/{{ regulationSlug }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
+		        {% endif %}
+		        {% if guide.data.platform %}
+		        <a href="/platforms/{{ platformSlug }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
+		        {% endif %}
+		    {% else %}
+		        <span class="guide-tag coming-soon">Coming Soon</span>
+		    {% endif %}
+		</div>
     </div>
 
     <div class="content-section intro-section">
