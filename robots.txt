@@ -1,1 +1,3 @@
 Disallow: /
+
+Sitemap: https://www.dspmguides.com/sitemap.xml
