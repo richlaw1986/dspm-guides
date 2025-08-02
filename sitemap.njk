@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>https://www.dpsmguides.com{{ page.url }}</loc>
     {%- if page.date %}
-    <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+    <lastmod>{{ page.date | date("YYYY-MM-DD") }}</lastmod>
     {%- endif %}
     {%- if page.data.sitemap and page.data.sitemap.changefreq %}
     <changefreq>{{ page.data.sitemap.changefreq }}</changefreq>
