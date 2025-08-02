@@ -1,4 +1,8 @@
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("dateISO", (dateObj) => {
+	    if (!dateObj) return "";
+	    return new Date(dateObj).toISOString().split('T')[0];
+	  });
   eleventyConfig.addPassthroughCopy({"public/css": "css"});
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
