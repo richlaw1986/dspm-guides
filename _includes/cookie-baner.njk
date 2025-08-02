@@ -1,0 +1,59 @@
+<div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="cookie-banner-content">
+        <p>This website utilises technologies such as cookies to enable essential site functionality, as well as for analytics, personalisation, and targeted advertising. You may change your settings at any time or accept the default settings. You may close this banner to continue with only essential cookies. <a href="/privacy-policy">Privacy Policy</a></p>
+        <div class="cookie-banner-buttons">
+            <button id="accept-all" class="cookie-btn accept-btn">Accept All</button>
+            <button id="reject-non-essential" class="cookie-btn reject-btn">Reject Non-Essential</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-all');
+    const rejectBtn = document.getElementById('reject-non-essential');
+    
+    // Show banner if no consent stored
+    if (!localStorage.getItem('cookie-consent')) {
+        banner.style.display = 'block';
+    }
+    
+    // Accept all cookies
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookie-consent', 'accepted');
+        banner.style.display = 'none';
+        
+        // Load GTM if not already loaded
+        if (!window.gtag) {
+            loadGTM();
+        }
+        
+        // Update consent
+        gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'granted'
+        });
+    });
+    
+    // Reject non-essential
+    rejectBtn.addEventListener('click', function() {
+        localStorage.setItem('cookie-consent', 'rejected');
+        banner.style.display = 'none';
+        
+        gtag('consent', 'update', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied'
+        });
+    });
+    
+    // Load GTM function
+    function loadGTM() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX'); // Replace with your GTM ID
+    }
+})();
+</script>

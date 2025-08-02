@@ -7,8 +7,39 @@
     <meta name="description" content="{{ description or 'Professional DSPM guides for cybersecurity experts' }}">
     <link rel="canonical" href="{{ canonical_url or ('https://www.dpsmguides.com' + page.url) }}">
     <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Google Tag Manager (only loads if consent given) -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Check for existing consent
+    const consent = localStorage.getItem('cookie-consent');
+    if (consent === 'accepted') {
+        // Load GTM if consent already given
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX'); // Replace with your GTM ID
+        
+        gtag('consent', 'default', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'granted'
+        });
+    } else {
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied'
+        });
+    }
+    </script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
     {% include "header.njk" %}
     
     <main>
@@ -16,5 +47,8 @@
     </main>
     
     {% include "footer.njk" %}
+    
+    <!-- Cookie Banner -->
+    {% include "cookie-banner.njk" %}
 </body>
 </html>
