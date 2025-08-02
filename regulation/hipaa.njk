@@ -34,8 +34,8 @@ regulation: "HIPAA"
                     {% endif %}
                     <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
                     {% if guide.data.platform %}
-                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
-                    {% endif %}
+                            <a href="/platforms/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
+                            {% endif %}
                 </div>
             </div>
             {% endif %}
