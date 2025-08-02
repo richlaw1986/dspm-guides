@@ -17,15 +17,15 @@ layout: base.njk
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
 		<div class="guide-tags-container">
-		    {% if guide.status == 'published' %}
-		        {% if guide.risk %}
-		        <a href="/risk/{{ guide.risk | downcase | replace: ' ', '-' }}/" class="guide-tag risk">{{ guide.risk }}</a>
+		    {% if status == 'published' %}
+		        {% if risk %}
+		        <a href="/risk/{{ risk | downcase | replace: ' ', '-' }}/" class="guide-tag risk">{{ risk }}</a>
 		        {% endif %}
-		        {% if guide.regulation %}
-		        <a href="/regulation/{{ guide.regulation | downcase | replace: ' ', '-' }}/" class="guide-tag regulation">{{ guide.regulation }}</a>
+		        {% if regulation %}
+		        <a href="/regulation/{{ regulation | downcase | replace: ' ', '-' }}/" class="guide-tag regulation">{{ regulation }}</a>
 		        {% endif %}
-		        {% if guide.platform %}
-		        <a href="/platforms/{{ guide.platform | downcase | replace: ' ', '-' }}/" class="guide-tag platform">{{ guide.platform }}</a>
+		        {% if platform %}
+		        <a href="/platforms/{{ platform | downcase | replace: ' ', '-' }}/" class="guide-tag platform">{{ platform }}</a>
 		        {% endif %}
 		    {% else %}
 		        <span class="guide-tag coming-soon">Coming Soon</span>
