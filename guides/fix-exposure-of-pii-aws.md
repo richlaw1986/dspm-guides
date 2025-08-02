@@ -16,8 +16,23 @@ layout: base.njk
     <div class="header">
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
-        <div class="badge">Unrestricted Public Access</div>
-        <div class="badge regulation">GDPR</div>
+        <div class="guide-tags-container">
+			<div class="guide-tags-wrapper">
+		    {% if status == 'published' %}
+		        {% if risk %}
+		        <a href="/risk/{{ risk | downcase | replace: ' ', '-' }}/" class="guide-tag risk">{{ risk }}</a>
+		        {% endif %}
+		        {% if regulation %}
+		        <a href="/regulation/{{ regulation | downcase | replace: ' ', '-' }}/" class="guide-tag regulation">{{ regulation }}</a>
+		        {% endif %}
+		        {% if platform %}
+		        <a href="/platforms/{{ platform | downcase | replace: ' ', '-' }}/" class="guide-tag platform">{{ platform }}</a>
+		        {% endif %}
+		    {% else %}
+		        <span class="guide-tag coming-soon">Coming Soon</span>
+		    {% endif %}
+		</div>
+		</div>
     </div>
 
     <div class="content-section intro-section">
