@@ -29,13 +29,7 @@ regulation: "SOC 2"
                 <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
                 <p>{{ guide.data.description }}</p>
                 <div class="guide-tags-container">
-                    {% if guide.data.risk %}
-                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
-                    {% endif %}
-                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
-                    {% if guide.data.platform %}
-                            <a href="/platforms/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
-                            {% endif %}
+                    {% if guide.data.status == 'published' %} {% if guide.data.risk %} <a href="/risk/{{ guide.data.risk | lower | replace(' ', '-') }}/" class="guide-tag risk">{{ guide.data.risk }}</a> {% endif %} {% if guide.data.regulation %} <a href="/regulation/{{ guide.data.regulation | lower | replace(' ', '-') }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a> {% endif %} {% if guide.data.platform %} <a href="/platforms/{{ guide.data.platform | lower | replace(' ', '-') }}/" class="guide-tag platform">{{ guide.data.platform }}</a> {% endif %} {% else %} <span class="guide-tag coming-soon">Coming Soon</span> {% endif %}
                 </div>
             </div>
             {% endif %}
