@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and Named Entity Recognition (NER) models to automatically detect and classify configuration files across cloud environments. By leveraging machine learning algorithms specifically trained to identify configuration patterns, file extensions, and embedded secrets, Cyera provides comprehensive visibility into your Databricks configuration landscape while reducing false positives and manual review overhead.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and Named Entity Recognition (NER) models to automatically detect and classify configuration files across cloud environments. By leveraging machine learning algorithms specifically trained to identify configuration patterns, file extensions, and embedded secrets, Cyera provides comprehensive visibility into your Databricks configuration landscape while reducing false positives and manual review overhead.</p>
     </div>
 	
 

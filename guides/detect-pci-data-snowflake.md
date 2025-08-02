@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera automatically identifies payment card data patterns in Snowflake, including credit card numbers, CVV codes, and expiration dates, ensuring you stay ahead of accidental exposures and meet PCI-DSS audit requirements in real time.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera automatically identifies payment card data patterns in Snowflake, including credit card numbers, CVV codes, and expiration dates, ensuring you stay ahead of accidental exposures and meet PCI-DSS audit requirements in real time.</p>
     </div>
 	
 

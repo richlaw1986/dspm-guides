@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that leverages advanced AI, including Named Entity Recognition (NER) and machine learning models, to automatically identify and classify employee data across your Databricks environment. By using AI to understand data context and relationships, Cyera enables you to implement granular access controls and preventive policies that protect employee information before exposure occurs, ensuring GDPR compliance through intelligent automation.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that leverages advanced AI, including Named Entity Recognition (NER) and machine learning models, to automatically identify and classify employee data across your Databricks environment. By using AI to understand data context and relationships, Cyera enables you to implement granular access controls and preventive policies that protect employee information before exposure occurs, ensuring GDPR compliance through intelligent automation.</p>
     </div>
 	
 

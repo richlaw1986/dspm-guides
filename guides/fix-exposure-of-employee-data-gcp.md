@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and machine learning models including Named Entity Recognition (NER), Cyera automatically identifies exposed employee data in GCP resources and provides intelligent remediation recommendations to ensure GDPR compliance and minimize exposure risks.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and machine learning models including Named Entity Recognition (NER), Cyera automatically identifies exposed employee data in GCP resources and provides intelligent remediation recommendations to ensure GDPR compliance and minimize exposure risks.</p>
     </div>
 	
 

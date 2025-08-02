@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and Natural Language Processing (NER) to automatically identify PII exposures in your Snowflake environment. Cyera's intelligent remediation engine not only detects exposed PII but also provides automated policy recommendations and helps implement dynamic data masking rules tailored to your specific data patterns and compliance requirements.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and Natural Language Processing (NER) to automatically identify PII exposures in your Snowflake environment. Cyera's intelligent remediation engine not only detects exposed PII but also provides automated policy recommendations and helps implement dynamic data masking rules tailored to your specific data patterns and compliance requirements.</p>
     </div>
 	
 

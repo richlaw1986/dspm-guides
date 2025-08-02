@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that leverages AI-powered pattern recognition and natural language processing to automatically identify and prevent password exposures across Azure environments. Using advanced machine learning models, Cyera can detect hardcoded credentials, weak authentication patterns, and insecure secret storage practices in real-time, ensuring your Azure infrastructure maintains robust password security posture.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that leverages AI-powered pattern recognition and natural language processing to automatically identify and prevent password exposures across Azure environments. Using advanced machine learning models, Cyera can detect hardcoded credentials, weak authentication patterns, and insecure secret storage practices in real-time, ensuring your Azure infrastructure maintains robust password security posture.</p>
     </div>
 	
 

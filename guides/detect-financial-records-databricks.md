@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera can automatically identify financial records including account numbers, transaction data, and sensitive financial statements in Databricks, ensuring you stay ahead of accidental exposures and meet SOX audit requirements in real time.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera can automatically identify financial records including account numbers, transaction data, and sensitive financial statements in Databricks, ensuring you stay ahead of accidental exposures and meet SOX audit requirements in real time.</p>
     </div>
 	
 

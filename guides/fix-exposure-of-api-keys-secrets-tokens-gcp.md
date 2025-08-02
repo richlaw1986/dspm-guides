@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI and Natural Language Processing (NLP) techniques, Cyera automatically identifies exposed API keys, secrets, and tokens in code repositories, configuration files, and data stores within your GCP environment, enabling immediate remediation before attackers can exploit them.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI and Natural Language Processing (NLP) techniques, Cyera automatically identifies exposed API keys, secrets, and tokens in code repositories, configuration files, and data stores within your GCP environment, enabling immediate remediation before attackers can exploit them.</p>
     </div>
 	
 

@@ -85,7 +85,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI and natural language processing (NLP) for entity recognition, Cyera automatically identifies PHI patterns in unstructured healthcare data and provides automated remediation workflows to quickly secure exposed protected health information in your Azure environment.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI and natural language processing (NLP) for entity recognition, Cyera automatically identifies PHI patterns in unstructured healthcare data and provides automated remediation workflows to quickly secure exposed protected health information in your Azure environment.</p>
     </div>
 	
 

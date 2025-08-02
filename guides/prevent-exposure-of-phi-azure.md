@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI-powered Named Entity Recognition (NER) and machine learning models, Cyera automatically identifies PHI patterns within your Azure environment—including patient names, medical record numbers, diagnosis codes, and treatment information—enabling proactive prevention of data exposure before it occurs.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI-powered Named Entity Recognition (NER) and machine learning models, Cyera automatically identifies PHI patterns within your Azure environment—including patient names, medical record numbers, diagnosis codes, and treatment information—enabling proactive prevention of data exposure before it occurs.</p>
     </div>
 	
 

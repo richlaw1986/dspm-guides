@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that automatically discovers, classifies, and remediates PHI exposures across cloud environments. Using advanced AI and Named Entity Recognition (NER) models, Cyera identifies PHI patterns in unstructured text, medical records, and database fields, then provides automated remediation workflows to anonymize, mask, or securely relocate sensitive health data while maintaining HIPAA compliance.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that automatically discovers, classifies, and remediates PHI exposures across cloud environments. Using advanced AI and Named Entity Recognition (NER) models, Cyera identifies PHI patterns in unstructured text, medical records, and database fields, then provides automated remediation workflows to anonymize, mask, or securely relocate sensitive health data while maintaining HIPAA compliance.</p>
     </div>
 	
 

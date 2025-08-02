@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging AI-powered anomaly detection and behavioral analysis, Cyera automatically identifies suspicious patterns in Azure audit logs, correlating access events with data sensitivity to detect potential insider threats and unauthorized data access in real time.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging AI-powered anomaly detection and behavioral analysis, Cyera automatically identifies suspicious patterns in Azure audit logs, correlating access events with data sensitivity to detect potential insider threats and unauthorized data access in real time.</p>
     </div>
 	
 

@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI-powered named entity recognition (NER) and machine learning models to automatically identify, classify, and track sensitive customer data across your Snowflake environment. By leveraging natural language processing and pattern recognition, Cyera can rapidly pinpoint exposed customer records, assess the scope of exposure, and provide actionable remediation guidance to ensure swift compliance with GDPR requirements.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI-powered named entity recognition (NER) and machine learning models to automatically identify, classify, and track sensitive customer data across your Snowflake environment. By leveraging natural language processing and pattern recognition, Cyera can rapidly pinpoint exposed customer records, assess the scope of exposure, and provide actionable remediation guidance to ensure swift compliance with GDPR requirements.</p>
     </div>
 	
 

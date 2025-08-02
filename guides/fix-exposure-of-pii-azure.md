@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI including Natural Language Processing (NLP) and Named Entity Recognition (NER) to automatically identify and classify PII across Azure environments. Cyera's AI-powered remediation workflows help you quickly revoke inappropriate access, apply proper data labels, and implement protective policies to fix PII exposure at scale while maintaining operational efficiency.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI including Natural Language Processing (NLP) and Named Entity Recognition (NER) to automatically identify and classify PII across Azure environments. Cyera's AI-powered remediation workflows help you quickly revoke inappropriate access, apply proper data labels, and implement protective policies to fix PII exposure at scale while maintaining operational efficiency.</p>
     </div>
 	
 

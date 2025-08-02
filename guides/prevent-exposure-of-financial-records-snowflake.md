@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera automatically identifies financial records in Snowflake, including account numbers, transaction data, and regulatory filings. This automated classification enables proactive policy enforcement and ensures your financial data remains protected against unauthorized access while maintaining SOX audit readiness.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and Named Entity Recognition (NER) models, Cyera automatically identifies financial records in Snowflake, including account numbers, transaction data, and regulatory filings. This automated classification enables proactive policy enforcement and ensures your financial data remains protected against unauthorized access while maintaining SOX audit readiness.</p>
     </div>
 	
 

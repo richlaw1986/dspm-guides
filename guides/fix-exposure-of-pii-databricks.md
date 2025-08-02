@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and Named Entity Recognition (NER) to automatically identify, classify, and help remediate PII exposures across cloud environments. By leveraging machine learning models trained on vast datasets, Cyera can quickly pinpoint exposed PII in Databricks and provide guided remediation workflows to ensure swift compliance with GDPR requirements.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and Named Entity Recognition (NER) to automatically identify, classify, and help remediate PII exposures across cloud environments. By leveraging machine learning models trained on vast datasets, Cyera can quickly pinpoint exposed PII in Databricks and provide guided remediation workflows to ensure swift compliance with GDPR requirements.</p>
     </div>
 	
 
@@ -126,7 +126,7 @@ SELECT id, mask(email) as email, redact(ssn) as ssn FROM original_table;</div>
         <div class="component-grid">
             <div class="component-card">
                 <h4>Exposure Detection</h4>
-                <p>Cyera identifies exposed PII through continuous scanning</p>
+                <p><a href="https://www.cyera.com">Cyera</a> identifies exposed PII through continuous scanning</p>
             </div>
             <div class="component-card">
                 <h4>Access Control Engine</h4>

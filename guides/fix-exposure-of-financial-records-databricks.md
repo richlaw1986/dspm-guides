@@ -85,7 +85,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning to discover, classify, and remediate sensitive data exposures across cloud environments. For financial records remediation, Cyera leverages Natural Language Processing (NLP) and pattern recognition to identify exposed financial data with high precision, then provides automated remediation workflows to quickly secure your Databricks environment while maintaining business continuity.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning to discover, classify, and remediate sensitive data exposures across cloud environments. For financial records remediation, Cyera leverages Natural Language Processing (NLP) and pattern recognition to identify exposed financial data with high precision, then provides automated remediation workflows to quickly secure your Databricks environment while maintaining business continuity.</p>
     </div>
 	
 
@@ -127,7 +127,7 @@ layout: base.njk
         <div class="component-grid">
             <div class="component-card">
                 <h4>Exposure Detection</h4>
-                <p>Cyera identifies exposed financial records and access patterns</p>
+                <p><a href="https://www.cyera.com">Cyera</a> identifies exposed financial records and access patterns</p>
             </div>
             <div class="component-card">
                 <h4>Unity Catalog Governance</h4>

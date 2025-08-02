@@ -84,7 +84,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses AI-powered Named Entity Recognition (NER) and advanced pattern matching to automatically identify and classify PHI across your Snowflake environment. By leveraging machine learning models trained on healthcare data patterns, Cyera not only discovers exposed PHI but also provides automated remediation workflows and continuous monitoring to ensure your Snowflake data warehouse maintains HIPAA compliance.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses AI-powered Named Entity Recognition (NER) and advanced pattern matching to automatically identify and classify PHI across your Snowflake environment. By leveraging machine learning models trained on healthcare data patterns, Cyera not only discovers exposed PHI but also provides automated remediation workflows and continuous monitoring to ensure your Snowflake data warehouse maintains HIPAA compliance.</p>
     </div>
 	
 

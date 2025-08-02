@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and natural language processing (NLP) to automatically scan your Databricks environment for exposed passwords and hardcoded credentials. By leveraging machine learning models trained on credential patterns, Cyera proactively identifies potential password exposures in notebooks, configuration files, and code repositories before they become security incidents.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and natural language processing (NLP) to automatically scan your Databricks environment for exposed passwords and hardcoded credentials. By leveraging machine learning models trained on credential patterns, Cyera proactively identifies potential password exposures in notebooks, configuration files, and code repositories before they become security incidents.</p>
     </div>
 	
 

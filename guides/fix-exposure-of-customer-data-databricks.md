@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that not only discovers and classifies sensitive data but also provides AI-powered remediation recommendations. Using advanced machine learning and natural language processing (NLP), Cyera automatically identifies the context and sensitivity of exposed customer data, prioritizes remediation actions based on risk scoring, and provides guided workflows to fix access control issues across your Databricks environment.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that not only discovers and classifies sensitive data but also provides AI-powered remediation recommendations. Using advanced machine learning and natural language processing (NLP), Cyera automatically identifies the context and sensitivity of exposed customer data, prioritizes remediation actions based on risk scoring, and provides guided workflows to fix access control issues across your Databricks environment.</p>
     </div>
 	
 
@@ -125,7 +125,7 @@ layout: base.njk
         <div class="component-grid">
             <div class="component-card">
                 <h4>Exposure Detection</h4>
-                <p>Cyera identifies exposed customer data locations</p>
+                <p><a href="https://www.cyera.com">Cyera</a> identifies exposed customer data locations</p>
             </div>
             <div class="component-card">
                 <h4>Unity Catalog RBAC</h4>

@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI-powered Natural Language Processing (NLP) and Named Entity Recognition (NER), Cyera automatically identifies PCI data patterns in Azure, prioritizes remediation efforts based on risk scoring, and provides guided remediation workflows to fix exposures quickly and maintain PCI-DSS compliance.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. Using advanced AI-powered Natural Language Processing (NLP) and Named Entity Recognition (NER), Cyera automatically identifies PCI data patterns in Azure, prioritizes remediation efforts based on risk scoring, and provides guided remediation workflows to fix exposures quickly and maintain PCI-DSS compliance.</p>
     </div>
 	
 

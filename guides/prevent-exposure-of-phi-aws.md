@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses AI-powered Named Entity Recognition (NER) and machine learning to automatically discover, classify, and protect PHI across your AWS environment. By continuously monitoring your data stores and applying intelligent policy enforcement, Cyera ensures your healthcare data remains compliant with HIPAA requirements while preventing accidental exposures before they occur.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses AI-powered Named Entity Recognition (NER) and machine learning to automatically discover, classify, and protect PHI across your AWS environment. By continuously monitoring your data stores and applying intelligent policy enforcement, Cyera ensures your healthcare data remains compliant with HIPAA requirements while preventing accidental exposures before they occur.</p>
     </div>
 	
 

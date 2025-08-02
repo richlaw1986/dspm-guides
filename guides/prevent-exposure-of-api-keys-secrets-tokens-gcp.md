@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning models to automatically discover, classify, and monitor sensitive credentials across cloud environments. Through pattern recognition and Named Entity Recognition (NER), Cyera identifies API keys, tokens, and secrets that may be inadvertently exposed in code repositories, configuration files, or data stores within your GCP environment, ensuring continuous protection against credential exposure.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning models to automatically discover, classify, and monitor sensitive credentials across cloud environments. Through pattern recognition and Named Entity Recognition (NER), Cyera identifies API keys, tokens, and secrets that may be inadvertently exposed in code repositories, configuration files, or data stores within your GCP environment, ensuring continuous protection against credential exposure.</p>
     </div>
 	
 

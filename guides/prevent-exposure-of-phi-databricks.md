@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning to automatically discover, classify, and protect your sensitive data across cloud environments. For PHI protection in Databricks, Cyera employs sophisticated Named Entity Recognition (NER) models and healthcare-specific pattern matching to identify PHI data types, then automatically applies appropriate security policies and access controls to prevent unauthorized exposure before it happens.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning to automatically discover, classify, and protect your sensitive data across cloud environments. For PHI protection in Databricks, Cyera employs sophisticated Named Entity Recognition (NER) models and healthcare-specific pattern matching to identify PHI data types, then automatically applies appropriate security policies and access controls to prevent unauthorized exposure before it happens.</p>
     </div>
 	
 

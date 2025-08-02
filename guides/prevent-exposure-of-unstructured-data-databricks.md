@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that leverages advanced AI and Natural Language Processing (NLP) to automatically discover, classify, and protect unstructured data across cloud environments. Cyera's AI-powered content analysis identifies sensitive information within documents, images, and free-form text in Databricks, applying intelligent classification rules to prevent exposure before it happens.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that leverages advanced AI and Natural Language Processing (NLP) to automatically discover, classify, and protect unstructured data across cloud environments. Cyera's AI-powered content analysis identifies sensitive information within documents, images, and free-form text in Databricks, applying intelligent classification rules to prevent exposure before it happens.</p>
     </div>
 	
 

@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning models, including Named Entity Recognition (NER), to automatically identify and classify sensitive employee data across your Databricks environment. Cyera's AI-powered remediation workflows guide you through fixing exposures while maintaining data integrity and business continuity.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that uses advanced AI and machine learning models, including Named Entity Recognition (NER), to automatically identify and classify sensitive employee data across your Databricks environment. Cyera's AI-powered remediation workflows guide you through fixing exposures while maintaining data integrity and business continuity.</p>
     </div>
 	
 
@@ -125,7 +125,7 @@ layout: base.njk
         <div class="component-grid">
             <div class="component-card">
                 <h4>Exposure Detection</h4>
-                <p>Cyera identifies exposed employee data</p>
+                <p><a href="https://www.cyera.com">Cyera</a> identifies exposed employee data</p>
             </div>
             <div class="component-card">
                 <h4>Unity Catalog Controls</h4>

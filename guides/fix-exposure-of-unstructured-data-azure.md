@@ -83,7 +83,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and natural language processing (NLP) techniques, Cyera automatically identifies and categorizes unstructured data in Azure Blob Storage, Data Lake, and file shares. Its intelligent content analysis goes beyond simple pattern matching to understand document context, sentiment, and data relationships, enabling precise remediation of exposed unstructured data while maintaining GDPR compliance requirements.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and natural language processing (NLP) techniques, Cyera automatically identifies and categorizes unstructured data in Azure Blob Storage, Data Lake, and file shares. Its intelligent content analysis goes beyond simple pattern matching to understand document context, sentiment, and data relationships, enabling precise remediation of exposed unstructured data while maintaining GDPR compliance requirements.</p>
     </div>
 	
 

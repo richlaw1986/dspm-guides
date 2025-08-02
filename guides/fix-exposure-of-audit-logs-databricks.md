@@ -85,7 +85,7 @@ layout: base.njk
 	
     <div class="cyera-highlight">
         <h3>Introducing Cyera</h3>
-        <p>Cyera is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and natural language processing (NLP) techniques, Cyera can automatically identify exposed audit logs in Databricks, analyze their content for sensitive operational data, and provide immediate remediation workflows to restore proper security controls and maintain SOC 2 compliance.</p>
+        <p><a href="https://www.cyera.com">Cyera</a> is a modern Data Security Posture Management (DSPM) platform that discovers, classifies, and continuously monitors your sensitive data across cloud services. By leveraging advanced AI and natural language processing (NLP) techniques, Cyera can automatically identify exposed audit logs in Databricks, analyze their content for sensitive operational data, and provide immediate remediation workflows to restore proper security controls and maintain SOC 2 compliance.</p>
     </div>
 	
 
