@@ -731,6 +731,7 @@ body {
     font-size: 0.75rem;
     font-weight: 600;
     margin-right: 8px;
+    margin-bottom: 8px; /* Add this line for vertical spacing when wrapping */
     transition: all 0.3s ease;
 }
 
