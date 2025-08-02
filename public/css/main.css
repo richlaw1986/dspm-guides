@@ -1268,6 +1268,14 @@ body {
     color: #9ca3af;
 }
 
+.guide-tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-top: 16px;
+}
+
 /* REPLACE the existing @media (max-width: 768px) block with this: */
 
 @media (max-width: 768px) {
