@@ -19,13 +19,13 @@ layout: base.njk
 		<div class="guide-tags-container">
 		    {% if guide.data.status == 'published' %}
 		        {% if guide.data.risk %}
-		        <a href="/risk/{{ guide.data.risk | lower | replace: ' ', '-' }}/" class="guide-tag risk">{{ guide.data.risk }}</a>
+		        <a href="/risk/{{ guide.data.risk | downcase | replace: ' ', '-' }}/" class="guide-tag risk">{{ guide.data.risk }}</a>
 		        {% endif %}
 		        {% if guide.data.regulation %}
-		        <a href="/regulation/{{ guide.data.regulation | lower | replace: ' ', '-' }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
+		        <a href="/regulation/{{ guide.data.regulation | downcase | replace: ' ', '-' }}/" class="guide-tag regulation">{{ guide.data.regulation }}</a>
 		        {% endif %}
 		        {% if guide.data.platform %}
-		        <a href="/platforms/{{ guide.data.platform | lower | replace: ' ', '-' }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
+		        <a href="/platforms/{{ guide.data.platform | downcase | replace: ' ', '-' }}/" class="guide-tag platform">{{ guide.data.platform }}</a>
 		        {% endif %}
 		    {% else %}
 		        <span class="guide-tag coming-soon">Coming Soon</span>
