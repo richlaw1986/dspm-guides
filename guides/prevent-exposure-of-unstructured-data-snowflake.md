@@ -11,7 +11,9 @@ status: "published"
 order: 1
 layout: base.njk
 ---
-
+{% assign riskSlug = guide.data.risk | lower | replace(' ', '-') %}
+{% assign regulationSlug = guide.data.regulation | lower | replace(' ', '-') %}
+{% assign platformSlug = guide.data.platform | lower | replace(' ', '-') %}
 <div class="container">
     <div class="header">
         <h1>{{ title }}</h1>
