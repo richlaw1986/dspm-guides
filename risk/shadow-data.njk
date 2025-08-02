@@ -1,0 +1,275 @@
+---
+title: "Shadow Data Risk Guides"
+description: "DSPM guides for identifying and mitigating shadow data risks."
+layout: base.njk
+risk: "shadow data"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Shadow Data Risk</h2>
+        <p>Shadow data refers to unknown, unmanaged, or ungoverned data assets that exist outside of formal data governance and security frameworks. This data often accumulates through organic business processes, departmental initiatives, or legacy systems, creating blind spots in data security posture. Shadow data presents significant risks because it lacks proper classification, access controls, and monitoring, making it vulnerable to exposure, misuse, or compliance violations.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Shadow Data Sources</h4>
+                <ul>
+                    <li>Departmental file shares and personal drives</li>
+                    <li>Abandoned databases and legacy applications</li>
+                    <li>Third-party integrations and data feeds</li>
+                    <li>Employee personal cloud storage usage</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Discovery Challenges</h4>
+                <ul>
+                    <li>Distributed data across multiple platforms</li>
+                    <li>Lack of centralized inventory and cataloging</li>
+                    <li>Inconsistent naming and organizational structures</li>
+                    <li>Unknown data lineage and ownership</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Risk Implications</h4>
+                <ul>
+                    <li>Uncontrolled sensitive data exposure</li>
+                    <li>Compliance violations and audit failures</li>
+                    <li>Inability to respond to data subject requests</li>
+                    <li>Increased attack surface and breach risk</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Shadow Data Discovery Strategies</h2>
+        <p>Identifying shadow data requires comprehensive discovery approaches that can uncover data assets across diverse environments and platforms.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Automated Discovery Tools</h4>
+                <ul>
+                    <li>Data discovery and classification platforms</li>
+                    <li>Network scanning and asset inventory tools</li>
+                    <li>Cloud security posture management (CSPM)</li>
+                    <li>Database and file system crawling solutions</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Manual Discovery Processes</h4>
+                <ul>
+                    <li>Departmental data inventory surveys</li>
+                    <li>IT asset audits and documentation reviews</li>
+                    <li>Application portfolio assessments</li>
+                    <li>Business process mapping and data flow analysis</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Continuous Monitoring</h4>
+                <ul>
+                    <li>New data source detection and alerting</li>
+                    <li>Data movement and replication monitoring</li>
+                    <li>Cloud resource provisioning oversight</li>
+                    <li>Third-party integration and API monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Shadow Data Governance Framework</h2>
+        <p>Once shadow data is discovered, organizations need structured approaches to bring it under proper governance and security controls.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Data Classification & Tagging</h4>
+                <ul>
+                    <li>Apply sensitivity labels and classification schemes</li>
+                    <li>Identify data owners and stewards</li>
+                    <li>Document data lineage and business purpose</li>
+                    <li>Establish data quality and accuracy assessments</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Access Control Implementation</h4>
+                <ul>
+                    <li>Implement appropriate access restrictions</li>
+                    <li>Establish role-based permissions and approvals</li>
+                    <li>Remove unnecessary or excessive access rights</li>
+                    <li>Enable audit logging and access monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Integration & Rationalization</h4>
+                <ul>
+                    <li>Migrate valuable data to managed platforms</li>
+                    <li>Consolidate duplicate or redundant datasets</li>
+                    <li>Retire unnecessary or obsolete data stores</li>
+                    <li>Establish ongoing governance and maintenance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Prevention and Ongoing Management</h2>
+        <p>Preventing shadow data accumulation requires proactive governance, policy enforcement, and cultural changes to ensure all data creation follows established frameworks.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Governance Policies</h4>
+                <ul>
+                    <li>Establish data creation and acquisition policies</li>
+                    <li>Require approval for new data sources and systems</li>
+                    <li>Implement data sharing and collaboration guidelines</li>
+                    <li>Define roles and responsibilities for data management</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Technical Controls</h4>
+                <ul>
+                    <li>Deploy data loss prevention (DLP) solutions</li>
+                    <li>Monitor cloud resource provisioning and usage</li>
+                    <li>Implement network segmentation and access controls</li>
+                    <li>Enable automatic data discovery and cataloging</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Cultural & Training</h4>
+                <ul>
+                    <li>Provide data governance training and awareness</li>
+                    <li>Establish clear escalation and reporting procedures</li>
+                    <li>Incentivize compliance with data management policies</li>
+                    <li>Regularly communicate data governance importance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'shadow data' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

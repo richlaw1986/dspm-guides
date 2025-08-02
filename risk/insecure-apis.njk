@@ -1,0 +1,312 @@
+---
+title: "Insecure APIs Risk Guides"
+description: "DSPM guides for identifying and mitigating insecure APIs risks."
+layout: base.njk
+risk: "insecure APIs"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Insecure APIs Risk</h2>
+        <p>Insecure APIs represent critical vulnerabilities in modern applications and cloud environments where Application Programming Interfaces lack proper security controls. APIs serve as gateways to sensitive data and business logic, making them attractive targets for attackers. Insecure APIs can expose sensitive data, enable unauthorized access, and provide entry points for broader system compromise through authentication flaws, authorization bypasses, and input validation failures.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common API Vulnerabilities</h4>
+                <ul>
+                    <li>Broken authentication and session management</li>
+                    <li>Insufficient authorization and access controls</li>
+                    <li>Excessive data exposure in API responses</li>
+                    <li>Mass assignment and injection vulnerabilities</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>API Security Risks</h4>
+                <ul>
+                    <li>Lack of rate limiting and throttling</li>
+                    <li>Missing input validation and sanitization</li>
+                    <li>Improper error handling exposing system details</li>
+                    <li>Insufficient logging and monitoring capabilities</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Business Impact</h4>
+                <ul>
+                    <li>Data breaches and sensitive information exposure</li>
+                    <li>Service disruption and denial of service attacks</li>
+                    <li>Compliance violations and regulatory penalties</li>
+                    <li>Reputation damage and customer trust loss</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">OWASP API Security Top 10</h2>
+        <p>The OWASP API Security Top 10 provides a comprehensive framework for understanding and addressing the most critical API security risks.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Authentication & Authorization</h4>
+                <ul>
+                    <li>API1: Broken Object Level Authorization</li>
+                    <li>API2: Broken User Authentication</li>
+                    <li>API5: Broken Function Level Authorization</li>
+                    <li>API8: Injection vulnerabilities in API inputs</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Exposure & Management</h4>
+                <ul>
+                    <li>API3: Excessive Data Exposure in responses</li>
+                    <li>API6: Mass Assignment vulnerabilities</li>
+                    <li>API9: Improper Assets Management</li>
+                    <li>API10: Insufficient Logging and Monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Resource Protection</h4>
+                <ul>
+                    <li>API4: Lack of Resources and Rate Limiting</li>
+                    <li>API7: Security Misconfiguration</li>
+                    <li>Implement proper throttling and quota management</li>
+                    <li>Configure secure defaults and hardening</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">API Security Implementation</h2>
+        <p>Implementing comprehensive API security requires a multi-layered approach covering design, development, deployment, and ongoing monitoring phases.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Secure API Design</h4>
+                <ul>
+                    <li>Implement OAuth 2.0 and OpenID Connect</li>
+                    <li>Use API keys with proper scoping and rotation</li>
+                    <li>Design RESTful APIs with security principles</li>
+                    <li>Implement proper HTTP methods and status codes</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Input Validation & Output Filtering</h4>
+                <ul>
+                    <li>Validate all input parameters and payloads</li>
+                    <li>Implement strict data type and format checking</li>
+                    <li>Filter output to prevent data over-exposure</li>
+                    <li>Use allowlists for acceptable input values</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>API Gateway & Management</h4>
+                <ul>
+                    <li>Deploy API gateways for centralized control</li>
+                    <li>Implement rate limiting and throttling policies</li>
+                    <li>Enable comprehensive logging and analytics</li>
+                    <li>Manage API versioning and lifecycle</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">API Testing and Vulnerability Assessment</h2>
+        <p>Regular testing and assessment of API security is essential for identifying vulnerabilities and maintaining secure API endpoints.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Security Testing Methods</h4>
+                <ul>
+                    <li>Static Application Security Testing (SAST)</li>
+                    <li>Dynamic Application Security Testing (DAST)</li>
+                    <li>Interactive Application Security Testing (IAST)</li>
+                    <li>Penetration testing and ethical hacking</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Automated Testing Tools</h4>
+                <ul>
+                    <li>API security scanners and vulnerability assessment</li>
+                    <li>Fuzzing tools for input validation testing</li>
+                    <li>Authentication and authorization testing frameworks</li>
+                    <li>Performance and load testing for DoS resistance</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Continuous Security Integration</h4>
+                <ul>
+                    <li>DevSecOps pipeline integration</li>
+                    <li>CI/CD security testing automation</li>
+                    <li>Runtime application self-protection (RASP)</li>
+                    <li>API security monitoring in production</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">API Monitoring and Threat Detection</h2>
+        <p>Effective API security requires continuous monitoring and threat detection capabilities to identify attacks and anomalous behavior in real-time.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Runtime Protection</h4>
+                <ul>
+                    <li>Web Application Firewalls (WAF) with API rules</li>
+                    <li>API-specific threat detection and blocking</li>
+                    <li>Bot detection and automated attack prevention</li>
+                    <li>Real-time request analysis and filtering</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Behavioral Analytics</h4>
+                <ul>
+                    <li>API usage pattern analysis and baselines</li>
+                    <li>Anomaly detection for unusual API calls</li>
+                    <li>Client behavior profiling and risk scoring</li>
+                    <li>Fraud detection and prevention mechanisms</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Incident Response</h4>
+                <ul>
+                    <li>Automated threat response and API blocking</li>
+                    <li>Security incident escalation procedures</li>
+                    <li>Forensic analysis and attack attribution</li>
+                    <li>API security incident documentation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'insecure APIs' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

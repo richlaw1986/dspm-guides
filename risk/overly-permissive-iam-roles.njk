@@ -1,0 +1,275 @@
+---
+title: "Overly Permissive IAM Roles Risk Guides"
+description: "DSPM guides for identifying and mitigating overly permissive IAM roles risks."
+layout: base.njk
+risk: "overly permissive IAM roles"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Overly Permissive IAM Roles Risk</h2>
+        <p>Overly permissive Identity and Access Management (IAM) roles grant users, services, or applications more permissions than necessary to perform their intended functions. This violates the principle of least privilege and creates significant security risks by expanding the potential blast radius of compromised accounts, enabling privilege escalation, and increasing the likelihood of accidental or malicious data access.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common IAM Over-Permissions</h4>
+                <ul>
+                    <li>Wildcard permissions and administrative access</li>
+                    <li>Service accounts with broad cross-service access</li>
+                    <li>Development roles with production permissions</li>
+                    <li>Temporary permissions that become permanent</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Risk Scenarios</h4>
+                <ul>
+                    <li>Lateral movement through over-privileged accounts</li>
+                    <li>Accidental data deletion or modification</li>
+                    <li>Insider threats leveraging excessive access</li>
+                    <li>Credential compromise with expanded impact</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Detection Challenges</h4>
+                <ul>
+                    <li>Complex role inheritance and nested permissions</li>
+                    <li>Unused permissions without clear visibility</li>
+                    <li>Cross-platform and multi-cloud complexity</li>
+                    <li>Dynamic and temporary access patterns</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">IAM Analytics and Rightsizing</h2>
+        <p>Modern IAM analytics tools provide visibility into permission usage and enable data-driven decisions for implementing least privilege access.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Permission Analytics</h4>
+                <ul>
+                    <li>Unused permission identification and analysis</li>
+                    <li>Access pattern mining and behavioral baselines</li>
+                    <li>Risk scoring based on permission sensitivity</li>
+                    <li>Cross-platform permission correlation</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Automated Rightsizing</h4>
+                <ul>
+                    <li>Machine learning-based permission recommendations</li>
+                    <li>Policy simulation and impact analysis</li>
+                    <li>Gradual permission reduction and testing</li>
+                    <li>Rollback capabilities for permission changes</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Governance Integration</h4>
+                <ul>
+                    <li>Automated access reviews and certifications</li>
+                    <li>Policy-driven permission management</li>
+                    <li>Compliance reporting and audit trails</li>
+                    <li>Integration with identity governance platforms</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Platform-Specific IAM Optimization</h2>
+        <p>Different cloud platforms require specific approaches to identifying and remediating overly permissive IAM roles and policies.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>AWS IAM Optimization</h4>
+                <ul>
+                    <li>AWS Access Analyzer for unused access identification</li>
+                    <li>IAM policy simulator for permission testing</li>
+                    <li>CloudTrail analysis for actual permission usage</li>
+                    <li>Service Control Policies (SCPs) for boundaries</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Azure AD and RBAC</h4>
+                <ul>
+                    <li>Azure AD access reviews and recommendations</li>
+                    <li>Privileged Identity Management (PIM) analysis</li>
+                    <li>Role assignment and delegation optimization</li>
+                    <li>Custom role creation and permission scoping</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>GCP IAM and Organization</h4>
+                <ul>
+                    <li>IAM Recommender for permission optimization</li>
+                    <li>Policy Intelligence for overprivilege detection</li>
+                    <li>Conditional IAM policies for context-aware access</li>
+                    <li>Organization policy constraints and guardrails</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Least Privilege Implementation</h2>
+        <p>Implementing least privilege access requires systematic approaches to role design, permission management, and continuous optimization.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Role Design Principles</h4>
+                <ul>
+                    <li>Function-based role separation and boundaries</li>
+                    <li>Time-bound and context-aware permissions</li>
+                    <li>Granular resource and action scoping</li>
+                    <li>Delegation and approval workflow integration</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Dynamic Access Management</h4>
+                <ul>
+                    <li>Just-in-time (JIT) access provisioning</li>
+                    <li>Risk-based access control decisions</li>
+                    <li>Adaptive authentication and authorization</li>
+                    <li>Session-based and temporary permissions</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Continuous Optimization</h4>
+                <ul>
+                    <li>Regular permission usage analysis and cleanup</li>
+                    <li>Automated policy enforcement and compliance</li>
+                    <li>Change management and approval processes</li>
+                    <li>Training and awareness for IAM best practices</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'overly permissive IAM roles' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

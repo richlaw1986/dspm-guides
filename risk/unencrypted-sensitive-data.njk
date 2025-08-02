@@ -1,0 +1,275 @@
+---
+title: "Unencrypted Sensitive Data Risk Guides"
+description: "DSPM guides for identifying and mitigating unencrypted sensitive data risks."
+layout: base.njk
+risk: "unencrypted sensitive data"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Unencrypted Sensitive Data Risk</h2>
+        <p>Unencrypted sensitive data represents a critical security vulnerability where confidential information is stored or transmitted without cryptographic protection. This exposes organizations to data breaches, regulatory violations, and compliance failures. Encryption serves as a fundamental control to protect data confidentiality and integrity, both at rest and in transit.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Unencrypted Data Scenarios</h4>
+                <ul>
+                    <li>Database storage without encryption at rest</li>
+                    <li>Cloud storage buckets with default settings</li>
+                    <li>Backup files and archives without encryption</li>
+                    <li>Application logs containing sensitive information</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Detection Methods</h4>
+                <ul>
+                    <li>Data discovery and classification scanning</li>
+                    <li>Configuration assessment and compliance checks</li>
+                    <li>Network traffic analysis for unencrypted protocols</li>
+                    <li>File system encryption status monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Immediate Actions</h4>
+                <ul>
+                    <li>Enable encryption for identified sensitive data</li>
+                    <li>Implement proper key management controls</li>
+                    <li>Restrict access until encryption is applied</li>
+                    <li>Document encryption status and remediation plans</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Encryption Implementation by Data Type</h2>
+        <p>Different types of sensitive data require specific encryption approaches and considerations for effective protection.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Database Encryption</h4>
+                <ul>
+                    <li>Transparent Data Encryption (TDE) for at-rest protection</li>
+                    <li>Column-level encryption for specific sensitive fields</li>
+                    <li>Always Encrypted for end-to-end protection</li>
+                    <li>Encrypted database connections (TLS/SSL)</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>File & Storage Encryption</h4>
+                <ul>
+                    <li>Server-side encryption for cloud storage</li>
+                    <li>Client-side encryption for additional control</li>
+                    <li>Full disk encryption for physical storage</li>
+                    <li>Encrypted backup and archive solutions</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Application Data Encryption</h4>
+                <ul>
+                    <li>Application-level encryption for sensitive fields</li>
+                    <li>API payload encryption for data in transit</li>
+                    <li>Secure key storage and rotation practices</li>
+                    <li>Encryption key lifecycle management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Regulatory Compliance Requirements</h2>
+        <p>Many regulations mandate encryption for sensitive data types, with specific requirements for implementation and key management.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Healthcare (HIPAA)</h4>
+                <ul>
+                    <li>Encryption of PHI at rest and in transit</li>
+                    <li>Addressable safeguard implementation</li>
+                    <li>Access controls for encryption keys</li>
+                    <li>Risk assessment for encryption decisions</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Payment Cards (PCI-DSS)</h4>
+                <ul>
+                    <li>Strong cryptography for cardholder data</li>
+                    <li>Encryption of data transmission over networks</li>
+                    <li>Secure key generation and distribution</li>
+                    <li>Key rotation and retirement procedures</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Privacy Regulations (GDPR/CCPA)</h4>
+                <ul>
+                    <li>Appropriate technical measures for personal data</li>
+                    <li>Encryption as privacy by design implementation</li>
+                    <li>Data breach notification impact mitigation</li>
+                    <li>Cross-border transfer protection requirements</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Key Management Best Practices</h2>
+        <p>Effective encryption requires robust key management practices to ensure security and operational continuity.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Key Generation & Storage</h4>
+                <ul>
+                    <li>Use cryptographically secure random number generators</li>
+                    <li>Store keys in dedicated key management systems</li>
+                    <li>Separate encryption keys from encrypted data</li>
+                    <li>Implement hardware security modules (HSMs) for critical keys</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Key Lifecycle Management</h4>
+                <ul>
+                    <li>Regular key rotation and renewal schedules</li>
+                    <li>Secure key distribution and escrow procedures</li>
+                    <li>Key versioning and backward compatibility</li>
+                    <li>Secure key destruction and retirement processes</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Access Control & Monitoring</h4>
+                <ul>
+                    <li>Role-based access control for key operations</li>
+                    <li>Multi-person authorization for sensitive operations</li>
+                    <li>Comprehensive logging and audit trails</li>
+                    <li>Regular access reviews and key usage monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'unencrypted sensitive data' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

@@ -1,0 +1,275 @@
+---
+title: "Unauthorized Access Risk Guides"
+description: "DSPM guides for identifying and mitigating unauthorized access risks."
+layout: base.njk
+risk: "unauthorized access"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Unauthorized Access Risk</h2>
+        <p>Unauthorized access occurs when individuals or systems gain access to data, applications, or resources without proper authentication or authorization. This can result from compromised credentials, privilege escalation, access control failures, or exploitation of security vulnerabilities. Unauthorized access represents a fundamental security breach that can lead to data theft, system compromise, and regulatory violations.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Attack Vectors</h4>
+                <ul>
+                    <li>Compromised user credentials and password attacks</li>
+                    <li>Privilege escalation and lateral movement</li>
+                    <li>Exploitation of authentication vulnerabilities</li>
+                    <li>Session hijacking and token manipulation</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Access Control Failures</h4>
+                <ul>
+                    <li>Weak or missing authentication mechanisms</li>
+                    <li>Overly permissive authorization policies</li>
+                    <li>Broken access control in applications</li>
+                    <li>Misconfigured identity and access management</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Detection Indicators</h4>
+                <ul>
+                    <li>Failed authentication attempts and anomalies</li>
+                    <li>Unusual access patterns and timing</li>
+                    <li>Privilege escalation and permission changes</li>
+                    <li>Access from suspicious locations or devices</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Authentication and Authorization Controls</h2>
+        <p>Robust authentication and authorization mechanisms form the foundation of preventing unauthorized access to sensitive data and systems.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Strong Authentication</h4>
+                <ul>
+                    <li>Multi-factor authentication (MFA) implementation</li>
+                    <li>Password policies and complexity requirements</li>
+                    <li>Biometric and certificate-based authentication</li>
+                    <li>Single sign-on (SSO) with centralized control</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Authorization Framework</h4>
+                <ul>
+                    <li>Role-based access control (RBAC) implementation</li>
+                    <li>Attribute-based access control (ABAC) for complex scenarios</li>
+                    <li>Principle of least privilege enforcement</li>
+                    <li>Just-in-time (JIT) access provisioning</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Session Management</h4>
+                <ul>
+                    <li>Secure session token generation and validation</li>
+                    <li>Session timeout and automatic logout policies</li>
+                    <li>Concurrent session monitoring and limits</li>
+                    <li>Session invalidation and revocation controls</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Monitoring and Detection Systems</h2>
+        <p>Effective detection of unauthorized access requires comprehensive monitoring capabilities and analytics to identify suspicious activities and potential breaches.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Access Monitoring</h4>
+                <ul>
+                    <li>Real-time authentication and authorization logging</li>
+                    <li>User behavior analytics (UBA) and anomaly detection</li>
+                    <li>Privileged access monitoring (PAM) solutions</li>
+                    <li>Database activity monitoring (DAM) for data access</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Security Analytics</h4>
+                <ul>
+                    <li>Security information and event management (SIEM)</li>
+                    <li>Machine learning-based threat detection</li>
+                    <li>Risk scoring and behavioral baselines</li>
+                    <li>Correlation of access events across systems</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Incident Response</h4>
+                <ul>
+                    <li>Automated alerting and escalation procedures</li>
+                    <li>Immediate access revocation capabilities</li>
+                    <li>Forensic logging and evidence preservation</li>
+                    <li>Breach notification and reporting processes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Zero Trust Security Model</h2>
+        <p>Zero Trust architecture provides a comprehensive approach to preventing unauthorized access by assuming no implicit trust and continuously validating access requests.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Identity Verification</h4>
+                <ul>
+                    <li>Continuous identity verification and validation</li>
+                    <li>Device trust and compliance assessment</li>
+                    <li>Risk-based authentication and adaptive controls</li>
+                    <li>Identity governance and lifecycle management</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Network Segmentation</h4>
+                <ul>
+                    <li>Micro-segmentation and software-defined perimeters</li>
+                    <li>Encrypted communication channels</li>
+                    <li>Network access control (NAC) enforcement</li>
+                    <li>East-west traffic inspection and filtering</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Protection</h4>
+                <ul>
+                    <li>Data-centric security and encryption</li>
+                    <li>Dynamic access control based on context</li>
+                    <li>Data loss prevention (DLP) integration</li>
+                    <li>Real-time data access monitoring and analytics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'unauthorized access' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

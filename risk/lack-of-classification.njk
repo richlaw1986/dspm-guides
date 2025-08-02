@@ -1,0 +1,312 @@
+---
+title: "Lack of Classification Risk Guides"
+description: "DSPM guides for identifying and mitigating lack of classification risks."
+layout: base.njk
+risk: "lack of classification"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Lack of Classification Risk</h2>
+        <p>Lack of data classification occurs when organizations fail to systematically identify, label, and categorize their data assets based on sensitivity, business value, and regulatory requirements. Unclassified data creates significant security and compliance risks because appropriate protection controls cannot be applied without understanding what data exists and its relative importance. This leads to inconsistent security measures, compliance violations, and inability to respond effectively to data incidents.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Classification Gaps</h4>
+                <ul>
+                    <li>Unidentified sensitive data in systems</li>
+                    <li>Missing or inconsistent data labels</li>
+                    <li>Legacy data without current classification</li>
+                    <li>Third-party data lacking proper categorization</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Business Impact</h4>
+                <ul>
+                    <li>Inappropriate security controls for data sensitivity</li>
+                    <li>Compliance violations and audit failures</li>
+                    <li>Inability to respond to data subject requests</li>
+                    <li>Inefficient resource allocation and costs</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Operational Challenges</h4>
+                <ul>
+                    <li>Manual classification processes that don't scale</li>
+                    <li>Inconsistent classification across departments</li>
+                    <li>Lack of automated classification workflows</li>
+                    <li>Poor integration with security and compliance tools</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Data Classification Framework</h2>
+        <p>A robust data classification framework provides the foundation for implementing appropriate security controls and meeting regulatory requirements.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Classification Schemes</h4>
+                <ul>
+                    <li>Sensitivity-based classification (Public, Internal, Confidential, Restricted)</li>
+                    <li>Regulatory classification (PII, PHI, PCI, Export-controlled)</li>
+                    <li>Business value classification (Critical, Important, Standard, Low)</li>
+                    <li>Lifecycle classification (Active, Archive, Disposal)</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Classification Criteria</h4>
+                <ul>
+                    <li>Data type and content analysis</li>
+                    <li>Business impact and criticality assessment</li>
+                    <li>Legal and regulatory requirements</li>
+                    <li>Access restrictions and sharing limitations</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Labeling and Metadata</h4>
+                <ul>
+                    <li>Structured metadata schemas and taxonomies</li>
+                    <li>Automated tagging and label application</li>
+                    <li>Version control and classification history</li>
+                    <li>Cross-platform label synchronization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Automated Classification Technologies</h2>
+        <p>Modern data classification relies on automated technologies to scale classification efforts and maintain consistency across large data estates.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Content-Based Classification</h4>
+                <ul>
+                    <li>Pattern matching and regular expressions</li>
+                    <li>Machine learning and natural language processing</li>
+                    <li>Optical character recognition (OCR) for images</li>
+                    <li>Document fingerprinting and similarity detection</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Context-Based Classification</h4>
+                <ul>
+                    <li>Location and storage context analysis</li>
+                    <li>User and application context evaluation</li>
+                    <li>Data lineage and provenance tracking</li>
+                    <li>Business process and workflow integration</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Hybrid Classification Approaches</h4>
+                <ul>
+                    <li>Combination of automated and manual processes</li>
+                    <li>User-driven classification with automated validation</li>
+                    <li>Exception handling and review workflows</li>
+                    <li>Continuous learning and model improvement</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Classification Implementation Strategy</h2>
+        <p>Successful data classification implementation requires a phased approach with clear governance, technology deployment, and organizational change management.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Governance and Policy</h4>
+                <ul>
+                    <li>Data classification policy development</li>
+                    <li>Data stewardship roles and responsibilities</li>
+                    <li>Classification standards and procedures</li>
+                    <li>Training and awareness programs</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Technology Deployment</h4>
+                <ul>
+                    <li>Data discovery and classification tool selection</li>
+                    <li>Integration with existing security and governance tools</li>
+                    <li>Classification workflow automation</li>
+                    <li>Performance and scalability optimization</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Continuous Improvement</h4>
+                <ul>
+                    <li>Classification accuracy measurement and tuning</li>
+                    <li>Regular policy review and updates</li>
+                    <li>New data source onboarding processes</li>
+                    <li>Metrics and reporting for governance oversight</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Integration with Security Controls</h2>
+        <p>Data classification enables the implementation of appropriate security controls and compliance measures based on data sensitivity and business requirements.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Access Control Integration</h4>
+                <ul>
+                    <li>Classification-based access policies</li>
+                    <li>Automated permission assignment and enforcement</li>
+                    <li>Dynamic access control based on labels</li>
+                    <li>Cross-platform access policy synchronization</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Data Protection Controls</h4>
+                <ul>
+                    <li>Encryption requirements based on classification</li>
+                    <li>Data loss prevention (DLP) policy enforcement</li>
+                    <li>Backup and retention policy application</li>
+                    <li>Data masking and anonymization controls</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Compliance and Reporting</h4>
+                <ul>
+                    <li>Regulatory compliance mapping and reporting</li>
+                    <li>Data inventory and catalog maintenance</li>
+                    <li>Privacy impact assessment support</li>
+                    <li>Audit trail and classification history</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'lack of classification' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

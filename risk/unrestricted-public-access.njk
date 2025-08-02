@@ -1,0 +1,238 @@
+---
+title: "Unrestricted Public Access Risk Guides"
+description: "DSPM guides for identifying and mitigating unrestricted public access risks."
+layout: base.njk
+risk: "unrestricted public access"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Unrestricted Public Access Risk</h2>
+        <p>Unrestricted public access occurs when cloud resources, databases, storage containers, or applications are inadvertently configured to allow anonymous or public access to sensitive data. This represents one of the most critical security risks in cloud environments, as it can expose confidential information to anyone on the internet without authentication or authorization controls.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Public Exposure Points</h4>
+                <ul>
+                    <li>Public cloud storage buckets (S3, Blob, GCS)</li>
+                    <li>Open databases with public endpoints</li>
+                    <li>Unsecured API endpoints and services</li>
+                    <li>Public file shares and repositories</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Detection Methods</h4>
+                <ul>
+                    <li>Automated cloud security posture scanning</li>
+                    <li>Public IP and endpoint enumeration</li>
+                    <li>Configuration drift monitoring</li>
+                    <li>Third-party exposure assessment tools</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Immediate Remediation</h4>
+                <ul>
+                    <li>Remove public access permissions immediately</li>
+                    <li>Implement proper access controls and authentication</li>
+                    <li>Enable logging and monitoring for access attempts</li>
+                    <li>Conduct breach assessment and notification</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Prevention Strategies by Platform</h2>
+        <p>Different cloud platforms have specific configurations and best practices for preventing unrestricted public access to resources.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>AWS Prevention</h4>
+                <ul>
+                    <li>Enable S3 Block Public Access settings</li>
+                    <li>Use VPC endpoints for private connectivity</li>
+                    <li>Configure security groups with least privilege</li>
+                    <li>Enable AWS Config rules for public access detection</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Azure Prevention</h4>
+                <ul>
+                    <li>Disable anonymous access on storage accounts</li>
+                    <li>Use private endpoints and service endpoints</li>
+                    <li>Configure network security groups properly</li>
+                    <li>Enable Azure Policy for governance controls</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>GCP Prevention</h4>
+                <ul>
+                    <li>Remove allUsers and allAuthenticatedUsers permissions</li>
+                    <li>Use VPC Service Controls for data perimeters</li>
+                    <li>Configure firewall rules with specific sources</li>
+                    <li>Enable Security Command Center monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Incident Response for Public Exposure</h2>
+        <p>When unrestricted public access is discovered, immediate action is required to minimize potential data exposure and comply with regulatory requirements.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Immediate Actions</h4>
+                <ul>
+                    <li>Document the exposure scope and timeline</li>
+                    <li>Secure the resource and remove public access</li>
+                    <li>Preserve logs and evidence for investigation</li>
+                    <li>Notify security team and stakeholders</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Impact Assessment</h4>
+                <ul>
+                    <li>Identify data types and sensitivity levels exposed</li>
+                    <li>Determine potential access and download activity</li>
+                    <li>Assess regulatory notification requirements</li>
+                    <li>Evaluate business and reputational impact</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Recovery & Prevention</h4>
+                <ul>
+                    <li>Implement proper access controls and monitoring</li>
+                    <li>Conduct root cause analysis and remediation</li>
+                    <li>Update policies and procedures to prevent recurrence</li>
+                    <li>Provide additional training to relevant teams</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'unrestricted public access' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

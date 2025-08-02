@@ -1,0 +1,275 @@
+---
+title: "Data Exfiltration Risk Guides"
+description: "DSPM guides for identifying and mitigating data exfiltration risks."
+layout: base.njk
+risk: "data exfiltration"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Data Exfiltration Risk</h2>
+        <p>Data exfiltration is the unauthorized transfer of sensitive data from an organization's systems to external locations or actors. This can occur through malicious insiders, external attackers, or compromised systems. Data exfiltration represents one of the most serious security incidents, often resulting in significant financial losses, regulatory penalties, competitive disadvantage, and reputational damage.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Exfiltration Methods</h4>
+                <ul>
+                    <li>Bulk data downloads and database exports</li>
+                    <li>Email attachments and cloud file sharing</li>
+                    <li>Removable media and USB device transfers</li>
+                    <li>Network protocols and covert channels</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Attack Scenarios</h4>
+                <ul>
+                    <li>Insider threats and malicious employees</li>
+                    <li>Advanced persistent threats (APTs)</li>
+                    <li>Ransomware with data theft components</li>
+                    <li>Supply chain and third-party compromises</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Exfiltration Indicators</h4>
+                <ul>
+                    <li>Unusual data access volumes and patterns</li>
+                    <li>Large file transfers and bandwidth spikes</li>
+                    <li>Off-hours data access and downloads</li>
+                    <li>Access to sensitive data outside job functions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Data Loss Prevention (DLP) Strategy</h2>
+        <p>Data Loss Prevention technologies and processes provide comprehensive protection against data exfiltration through monitoring, detection, and prevention capabilities.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>DLP Technology Deployment</h4>
+                <ul>
+                    <li>Network DLP for traffic inspection and filtering</li>
+                    <li>Endpoint DLP for device and application control</li>
+                    <li>Cloud DLP for SaaS and cloud storage protection</li>
+                    <li>Database activity monitoring (DAM) for data access</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Content Classification</h4>
+                <ul>
+                    <li>Sensitive data identification and labeling</li>
+                    <li>Regular expression and pattern matching</li>
+                    <li>Machine learning-based content classification</li>
+                    <li>Document fingerprinting and watermarking</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Policy Enforcement</h4>
+                <ul>
+                    <li>Granular data handling and transfer policies</li>
+                    <li>Channel-specific controls and restrictions</li>
+                    <li>User and role-based policy application</li>
+                    <li>Incident workflow and remediation automation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Monitoring and Analytics</h2>
+        <p>Advanced monitoring and analytics capabilities are essential for detecting sophisticated data exfiltration attempts and insider threats.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Behavioral Analytics</h4>
+                <ul>
+                    <li>User behavior analytics (UBA) for anomaly detection</li>
+                    <li>Data access pattern analysis and baselines</li>
+                    <li>Risk scoring and threat prioritization</li>
+                    <li>Machine learning-based exfiltration detection</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Network Traffic Analysis</h4>
+                <ul>
+                    <li>Deep packet inspection (DPI) for content analysis</li>
+                    <li>Bandwidth monitoring and threshold alerting</li>
+                    <li>Protocol analysis and covert channel detection</li>
+                    <li>DNS monitoring for data exfiltration channels</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Cloud and SaaS Monitoring</h4>
+                <ul>
+                    <li>Cloud access security broker (CASB) deployment</li>
+                    <li>API monitoring and data flow tracking</li>
+                    <li>Shadow IT discovery and control</li>
+                    <li>Cloud storage and sharing activity monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Incident Response and Recovery</h2>
+        <p>When data exfiltration is detected, rapid response and recovery procedures are critical for minimizing damage and meeting regulatory requirements.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Immediate Response</h4>
+                <ul>
+                    <li>Isolate affected systems and accounts</li>
+                    <li>Preserve forensic evidence and logs</li>
+                    <li>Assess scope and impact of exfiltration</li>
+                    <li>Activate incident response team and procedures</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Investigation and Analysis</h4>
+                <ul>
+                    <li>Forensic analysis of exfiltration methods</li>
+                    <li>Timeline reconstruction and attack attribution</li>
+                    <li>Data sensitivity and volume assessment</li>
+                    <li>Root cause analysis and vulnerability identification</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Recovery and Remediation</h4>
+                <ul>
+                    <li>Regulatory notification and breach reporting</li>
+                    <li>Customer and stakeholder communication</li>
+                    <li>Security control enhancement and hardening</li>
+                    <li>Lessons learned and process improvement</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'data exfiltration' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

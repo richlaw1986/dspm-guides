@@ -1,0 +1,275 @@
+---
+title: "Stale Backups Risk Guides"
+description: "DSPM guides for identifying and mitigating stale backups risks."
+layout: base.njk
+risk: "stale backups"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Stale Backups Risk</h2>
+        <p>Stale backups represent a significant security and compliance risk when backup data is retained beyond its intended lifecycle, contains outdated sensitive information, or lacks proper governance controls. These forgotten or poorly managed backups can become attack vectors, create compliance violations, and expose organizations to data breach risks through unmonitored and unprotected legacy data stores.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Stale Backup Scenarios</h4>
+                <ul>
+                    <li>Database backups retained beyond policy limits</li>
+                    <li>VM snapshots forgotten in cloud storage</li>
+                    <li>Archive files with expired retention periods</li>
+                    <li>Development backups containing production data</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Detection Methods</h4>
+                <ul>
+                    <li>Backup inventory and age analysis</li>
+                    <li>Data retention policy compliance scanning</li>
+                    <li>Cloud storage lifecycle assessment</li>
+                    <li>Automated backup catalog auditing</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Risk Mitigation</h4>
+                <ul>
+                    <li>Implement automated backup lifecycle management</li>
+                    <li>Enforce data retention policies consistently</li>
+                    <li>Secure deletion and disposal procedures</li>
+                    <li>Regular backup inventory reviews and cleanup</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Backup Lifecycle Management</h2>
+        <p>Effective backup lifecycle management ensures that backup data is properly protected, maintained, and disposed of according to organizational policies and regulatory requirements.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Retention Policy Framework</h4>
+                <ul>
+                    <li>Define retention periods by data classification</li>
+                    <li>Establish legal hold and litigation support procedures</li>
+                    <li>Document business justification for retention periods</li>
+                    <li>Align with regulatory and compliance requirements</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Automated Lifecycle Controls</h4>
+                <ul>
+                    <li>Implement backup scheduling and rotation policies</li>
+                    <li>Configure automated deletion of expired backups</li>
+                    <li>Enable backup integrity verification and testing</li>
+                    <li>Set up alerts for policy violations and failures</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Backup Security Controls</h4>
+                <ul>
+                    <li>Encrypt backup data at rest and in transit</li>
+                    <li>Implement access controls and segregation of duties</li>
+                    <li>Monitor backup access and modification activities</li>
+                    <li>Maintain backup integrity through checksums and validation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Platform-Specific Backup Management</h2>
+        <p>Different platforms and environments require specific approaches to managing backup lifecycles and preventing stale backup accumulation.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Cloud Platform Backups</h4>
+                <ul>
+                    <li>Configure cloud storage lifecycle policies</li>
+                    <li>Use automated snapshot management services</li>
+                    <li>Implement cross-region backup governance</li>
+                    <li>Monitor backup costs and storage consumption</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Database Backup Management</h4>
+                <ul>
+                    <li>Implement transaction log backup rotation</li>
+                    <li>Configure differential and incremental backup cleanup</li>
+                    <li>Manage database snapshot and point-in-time recovery</li>
+                    <li>Coordinate backup retention with archival systems</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Application & File Backups</h4>
+                <ul>
+                    <li>Establish application-specific retention schedules</li>
+                    <li>Implement file system backup pruning</li>
+                    <li>Manage container and microservice backup lifecycles</li>
+                    <li>Coordinate backup retention with development cycles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Compliance and Legal Considerations</h2>
+        <p>Stale backups can create significant compliance and legal risks, particularly when they contain personal data or are subject to regulatory retention requirements.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Data Privacy Compliance</h4>
+                <ul>
+                    <li>Honor data subject deletion requests in backups</li>
+                    <li>Implement backup data minimization principles</li>
+                    <li>Document backup data processing purposes</li>
+                    <li>Ensure backup retention aligns with privacy policies</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Regulatory Retention Requirements</h4>
+                <ul>
+                    <li>Maintain required backup retention for audit purposes</li>
+                    <li>Implement legal hold capabilities for litigation</li>
+                    <li>Document backup retention decision rationale</li>
+                    <li>Coordinate with legal and compliance teams</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Secure Disposal Procedures</h4>
+                <ul>
+                    <li>Implement cryptographic erasure for encrypted backups</li>
+                    <li>Use secure deletion methods for unencrypted data</li>
+                    <li>Maintain disposal certificates and audit trails</li>
+                    <li>Verify complete data destruction and sanitization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'stale backups' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>

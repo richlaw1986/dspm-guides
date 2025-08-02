@@ -1,0 +1,275 @@
+---
+title: "Lateral Movement Risk Guides"
+description: "DSPM guides for identifying and mitigating lateral movement risks."
+layout: base.njk
+risk: "lateral movement risk"
+---
+<div class="container">
+    <div class="header">
+        <h1>{{ risk | title }} Risk Guides</h1>
+        <p>Comprehensive DSPM guides for identifying and mitigating {{ risk }} risks across your data infrastructure.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Available Guides</h2>
+        
+        <p class="guides-count">Loading guides for {{ risk }}...</p>
+        
+        <div class="guide-filters">
+            <button class="filter-button active">All Guides</button>
+            <button class="filter-button">Detection</button>
+            <button class="filter-button">Prevention</button>
+            <button class="filter-button">Compliance</button>
+        </div>
+        
+        <div class="component-grid">
+            {% for guide in collections.guides %}
+            {% if guide.data.risk == risk and guide.data.status == 'published' %}
+            <div class="component-card">
+                <h4><a href="{{ guide.url }}" class="guide-link-title">{{ guide.data.title }}</a></h4>
+                <p>{{ guide.data.description }}</p>
+                <div class="guide-tags-container">
+                    <span class="guide-tag risk">{{ guide.data.risk }}</span>
+                    {% if guide.data.regulation %}
+                    <span class="guide-tag regulation">{{ guide.data.regulation }}</span>
+                    {% endif %}
+                    {% if guide.data.platform %}
+                    <span class="guide-tag platform">{{ guide.data.platform }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">About Lateral Movement Risk</h2>
+        <p>Lateral movement refers to techniques that adversaries use to move through a network or cloud environment after gaining initial access. Attackers exploit trust relationships, shared credentials, and network connectivity to access additional systems and data beyond their initial entry point. This progression allows attackers to escalate privileges, discover sensitive data, and establish persistent access across the infrastructure.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Common Lateral Movement Techniques</h4>
+                <ul>
+                    <li>Credential harvesting and password reuse</li>
+                    <li>Service account and shared credential abuse</li>
+                    <li>Network protocol exploitation and tunneling</li>
+                    <li>Cloud service cross-resource access</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Attack Progression Indicators</h4>
+                <ul>
+                    <li>Unusual cross-system authentication patterns</li>
+                    <li>Privilege escalation and permission changes</li>
+                    <li>Network reconnaissance and port scanning</li>
+                    <li>Data access from non-standard locations</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Risk Amplification Factors</h4>
+                <ul>
+                    <li>Flat network architectures without segmentation</li>
+                    <li>Excessive trust relationships and permissions</li>
+                    <li>Poor credential management and rotation</li>
+                    <li>Lack of visibility into east-west traffic</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Network Segmentation and Isolation</h2>
+        <p>Effective network segmentation limits an attacker's ability to move laterally by creating security boundaries and controlling communication paths between systems.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Micro-Segmentation</h4>
+                <ul>
+                    <li>Implement software-defined perimeters</li>
+                    <li>Create granular security zones and enclaves</li>
+                    <li>Deploy application-aware network policies</li>
+                    <li>Use identity-based network access controls</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Cloud Network Security</h4>
+                <ul>
+                    <li>Configure virtual private clouds (VPCs) and subnets</li>
+                    <li>Implement security groups and network ACLs</li>
+                    <li>Deploy cloud-native firewalls and gateways</li>
+                    <li>Enable VPC flow logs and network monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Zero Trust Networking</h4>
+                <ul>
+                    <li>Eliminate implicit trust between network zones</li>
+                    <li>Implement continuous verification and validation</li>
+                    <li>Deploy software-defined perimeter solutions</li>
+                    <li>Enable encrypted communication channels</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Credential and Identity Management</h2>
+        <p>Robust credential and identity management prevents attackers from leveraging compromised accounts to move laterally through the environment.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Credential Security</h4>
+                <ul>
+                    <li>Implement strong password policies and MFA</li>
+                    <li>Regular credential rotation and lifecycle management</li>
+                    <li>Eliminate shared and service account passwords</li>
+                    <li>Deploy privileged access management (PAM) solutions</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Identity Governance</h4>
+                <ul>
+                    <li>Least privilege access principle enforcement</li>
+                    <li>Just-in-time (JIT) access provisioning</li>
+                    <li>Regular access reviews and recertification</li>
+                    <li>Automated identity lifecycle management</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Trust Relationship Management</h4>
+                <ul>
+                    <li>Minimize cross-domain and cross-system trusts</li>
+                    <li>Implement delegation controls and constraints</li>
+                    <li>Monitor and audit trust relationship usage</li>
+                    <li>Regular review of federated identity configurations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Detection and Monitoring Strategies</h2>
+        <p>Early detection of lateral movement attempts is critical for containing attacks and preventing widespread compromise.</p>
+        
+        <div class="best-practices-grid">
+            <div class="practice-card">
+                <h4>Behavioral Analytics</h4>
+                <ul>
+                    <li>User and entity behavior analytics (UEBA)</li>
+                    <li>Machine learning-based anomaly detection</li>
+                    <li>Baseline establishment and deviation analysis</li>
+                    <li>Risk scoring and threat hunting workflows</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Network Monitoring</h4>
+                <ul>
+                    <li>East-west traffic inspection and analysis</li>
+                    <li>Network protocol anomaly detection</li>
+                    <li>Endpoint detection and response (EDR) integration</li>
+                    <li>Network security monitoring (NSM) deployment</li>
+                </ul>
+            </div>
+            
+            <div class="practice-card">
+                <h4>Threat Intelligence Integration</h4>
+                <ul>
+                    <li>Indicators of compromise (IoC) monitoring</li>
+                    <li>Tactics, techniques, and procedures (TTP) detection</li>
+                    <li>MITRE ATT&CK framework mapping</li>
+                    <li>Threat hunting and proactive investigation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section next-steps">
+        <h2 class="section-title">Related Resources</h2>
+        <div>
+            <a href="/" class="action-button">← Back to All Guides</a>
+            <a href="/regulation/gdpr/" class="action-button">📋 Browse by Regulation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const guideCards = document.querySelectorAll('.component-card');
+    
+    // Define keyword mappings for each filter
+    const filterKeywords = {
+        'detection': ['detect', 'discover', 'scan', 'find', 'identify', 'classify'],
+        'prevention': ['prevent', 'protect', 'secure', 'block', 'restrict', 'control'],
+        'compliance': ['comply', 'audit', 'govern', 'policy', 'regulat', 'gdpr', 'hipaa', 'sox', 'fix', 'remed']
+    };
+    
+    // Initial count update
+    updateGuidesCount('all guides');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the filter value
+            const filterValue = this.textContent.toLowerCase().trim();
+            
+            // Show/hide cards based on filter
+            guideCards.forEach(card => {
+                if (filterValue === 'all guides') {
+                    card.style.display = 'block';
+                } else {
+                    // Get the title text from the card
+                    const titleElement = card.querySelector('h4 a.guide-link-title');
+                    const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    
+                    // Get the description text from the card
+                    const descElement = card.querySelector('p');
+                    const descText = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    // Combine title and description for searching
+                    const searchText = titleText + ' ' + descText;
+                    
+                    // Check if any keywords match
+                    const keywords = filterKeywords[filterValue] || [];
+                    const hasMatch = keywords.some(keyword => searchText.includes(keyword));
+                    
+                    if (hasMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update the guides count
+            updateGuidesCount(filterValue);
+        });
+    });
+    
+    function updateGuidesCount(filterValue) {
+        const visibleCards = document.querySelectorAll('.component-card[style*="block"], .component-card:not([style*="none"])');
+        const countElement = document.querySelector('.guides-count');
+        const visibleCount = Array.from(visibleCards).filter(card => 
+            !card.style.display || card.style.display !== 'none'
+        ).length;
+        
+        if (countElement) {
+            const category = filterValue === 'all guides' ? 'lateral movement risk' : filterValue;
+            countElement.textContent = `${visibleCount} guide${visibleCount !== 1 ? 's' : ''} available for ${category}`;
+        }
+    }
+});
+</script>
