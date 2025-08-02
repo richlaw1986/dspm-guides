@@ -11,9 +11,7 @@ status: "published"
 order: 1
 layout: base.njk
 ---
-{% set riskSlug = guide.data.risk | lower | replace(' ', '-') %}
-{% set regulationSlug = guide.data.regulation | lower | replace(' ', '-') %}
-{% set platformSlug = guide.data.platform | lower | replace(' ', '-') %}
+
 <div class="container">
     <div class="header">
         <h1>{{ title }}</h1>
