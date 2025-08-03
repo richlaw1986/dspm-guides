@@ -1491,5 +1491,21 @@ body {
 	    .practice-card {
 	        padding: 20px;
 	    }
+	    .flow-diagram {
+	        padding: 20px 16px;
+	        margin: 24px 0;
+	    }
+    
+	    .flow-container {
+	        padding: 0;
+	        margin: 0 auto;
+	        max-width: 100%;
+	    }
+    
+	    .flow-step {
+	        min-width: 200px;
+	        max-width: 280px;
+	        margin: 0 auto;
+	    }
 	}
 }
