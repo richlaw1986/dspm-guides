@@ -3,7 +3,7 @@ module.exports = function(eleventyConfig) {
 	    if (!dateObj) return "";
 	    return new Date(dateObj).toISOString().split('T')[0];
 	  });
-  eleventyConfig.addPassthroughCopy({"public/css": "css"});
+  eleventyConfig.addPassthroughCopy({"public/": "/"});
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
   eleventyConfig.addCollection("guides", function(collectionApi) {
