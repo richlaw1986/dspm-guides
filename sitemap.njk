@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
   {%- for page in collections.all %}
   {%- if page.url and not page.data.eleventyExcludeFromCollections %}
   <url>
-    <loc>https://www.dpsmguides.com{{ page.url }}</loc>
+    <loc>https://www.dspmguides.com{{ page.url }}</loc>
     {%- if page.date %}
     <lastmod>{{ page.date | dateISO }}</lastmod>
     {%- endif %}
